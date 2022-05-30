@@ -26,7 +26,7 @@ description: >-
         in between. I want to emphasize scientific intuition and connections. Intended
         audience is anyone interested in science - I'll assume about a high-school
         level understanding of math and scientific background.
-baseurl: "scientific_marginalia" # the subpath of your site, e.g. /blog
+baseurl: "scientific-marginalia" # the subpath of your site, e.g. /blog
 url: "https://mikebocek.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 domain: "mikebocek.github.io"
 github_username:  mikebocek
