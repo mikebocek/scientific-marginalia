@@ -21,11 +21,11 @@
 title: Scientific Marginalia
 email: mike.bocek@gmail.com
 description: >- 
-	This blog is a place for me to write about interesting topics in science,
-        at least to me. We'll talk about phsyics, chemistry, biology, and anything
-        in between. I want to emphasize scientific intuition and connections. Intended
-        audience is anyone interested in science - I'll assume about a high-school
-        level understanding of math and scientific background.
+  This blog is a place for me to write about interesting topics in science,
+  at least to me. We'll talk about phsyics, chemistry, biology, and anything
+  in between. I want to emphasize scientific intuition and connections. Intended
+  audience is anyone interested in science - I'll assume about a high-school
+  level understanding of math and scientific background.
 baseurl: "scientific-marginalia" # the subpath of your site, e.g. /blog
 url: "https://mikebocek.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 domain: "mikebocek.github.io"
