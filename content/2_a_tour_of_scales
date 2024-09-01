@@ -1,0 +1,41 @@
+A brief tour of scales 
+----------------------
+
+
+The human scale (larger than a bug, smaller than a house)
+#########################################################
+
+Most of our direct experience is with things that are within a couple of orders of magnitude of a meter. The shortest distance between two things that we can directly perceive is `probably around 30 µM or so <https://biology.stackexchange.com/questions/26189/whats-the-smallest-size-a-human-eye-can-see>`_, although that's pretty extreme by our standards. The largest thing we can directly percieve is a little harder to nail down. One arbitrary answer that's a nice piece of trivia is the furthest distance that's directly visible between any two points on Earth, which turns out to be about 443 km `between a peak in the Spanish Pyrenee and the French Alps <https://calgaryvisioncentre.com/news/2017/6/23/tdgft1bsbdlm8496ov7tn73kr0ci1q>`. In general though, I'd say that this scale is roughly the scale of familar objects that you could reasonably measure with a ruler or tape measure [#]_. Things in this scale behave more or less the way that you'd expect - they fall to earth if you drop them (but don't generally attract other objects towards them), don't generally move if you don't touch them, and have a well-defined position. As we'll soon see, that's not something that you can count on at all scales.
+
+Larger than a house but (much) smaller than a planet
+#############################################
+
+In this range, we're talking about the fields of surveying and navigation. Most of the appraoches used in these fields are highly specialized, but there's one general approach that's worth mentioning here which is the method of *parallax*. Stretch out your arm, and hold your index finger in front of something in the distance. Now try separately closing your left and right eyes - you'll notice that the position that your finger takes compared to the background seems to change depending on which eye you use. If you know the distance between your eyes and you measure the difference in angle between the left and right views, you can use some high-school geometry to work out how far your finger must be from the mid-point of your eyes.
+
+Obviously that's a distance that we can measure directly - but for other distances (i.e. the height of a mountain), observing the difference in angle from multiple positions can allow us to work out the distance using similar logic. Of course, these methods are a little old-fashioned by todays standards. Since the early 20th century, it's generally been easier and more accurate to measure distances by measuring the time it takes light to travel. For example, you could bounce a radio wave off of a far-away target, and measure the time that it takes for it to come back to the source. Since we know the speed of light, it's easy to calculate what the distance must be for the full round-trip. 
+
+Although the methods of measurement look pretty different at these scales, our intuition still works pretty well for how large objects behave. 
+
+Astronomical scales
+###################
+
+Measurement at these scales relies generally on the same methods (parallax, or light transit time) as the previous scales. Now - if I haven't totally lost you on parallax already, you're probably wondering how you can use parallax to measure distances that are planet-sized (or larger). Well, there's sort of 2 things we can do - both very clever. 
+
+The first is to pick two far-away places on the earth, where we know exactly how much distance is between them. Since we've known the approximate size of the earth since roughly 240 BCE (shout out again to Eratosthenes), measuring the distance between these sites is generally possible (if maybe difficult). If you then observe some far away object in the sky from both of these places and compare the angles, you can back calculate the distance to the object. Of course, there's a big difficulty in doing this - the earth rotates, so it's absolutely critical that you're able to measure this angle at *exactly* the same moment in both places.
+
+The second thing we can do is extraordinarily clever. Since the earth orbits (moves in a big circle) around the sun, we find ourselves on opposite sides of the sun in winter and summer. This means that we get two views of far away objects (one on each side of the sun), which we could in theory use to back-calculate the distances to these objects. The problem is that we're missing a number here - without knowing the distance between the earth and the sun in some "human" unit, it's not possible to connect the parallax angles that we observe to a real distance. 
+
+
+
+Larger than a galaxy 
+####################
+
+The cellular scale (Larger than a molecule, but smaller than a bug)
+
+The molecular scale
+
+The atomic scale 
+
+The nuclear scale and below
+
+.. [#] Even restricting ourselves to "rulers" there's some surprises - for example, on the small scale you can buy extraordinarily accurate rules (i.e. the `Mitutoyo Absolute Digimatic <https://titansofcnc.com/products/mitutoyo-absolute-aos-digimatic-caliper>` set of calipers) that are able to measure distances accurately to 0.01 mm (or 10 µm, which is about the size of a typical human cell). On the larger end you can buy a 100m tape measure at most hardware stores, but there's not much of a market for rulers longer than that. 
