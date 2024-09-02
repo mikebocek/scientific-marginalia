@@ -2,8 +2,6 @@ AUTHOR = 'Michael Bocek'
 SITENAME = 'Scientific Marginalia'
 SITEURL = ""
 
-PATH = "content"
-
 TIMEZONE = 'America/Los_Angeles'
 
 DEFAULT_LANG = 'en'
@@ -18,9 +16,6 @@ AUTHOR_FEED_RSS = None
 THEME = 'themes/bootstrap2'
 OUTPUT_PATH = 'output'
 PATH = 'content'
-
-ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{slug}/'
-ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{slug}/index.html'
 
 # Custom Home page
 DIRECT_TEMPLATES = (('index', 'blog', 'tags', 'categories', 'archives'))

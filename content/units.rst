@@ -1,8 +1,8 @@
 Dimensions and units
 ####################
 
-:date: 2024-01-01 12:00
-:modified: 2024-01-01 12:00
+:date: 2024-09-01 12:00
+:modified: 2024-09-01 12:00
 :tags: measurement, units
 :category: units
 :slug: units-intro 
