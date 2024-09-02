@@ -15,19 +15,16 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-LINKS = (
-    ("Pelican", "https://getpelican.com/"),
-    ("Python.org", "https://www.python.org/"),
-    ("Jinja2", "https://palletsprojects.com/p/jinja/"),
-    ("You can modify those links in your config file", "#"),
-)
+THEME = 'themes/bootstrap2'
+OUTPUT_PATH = 'output'
+PATH = 'content'
 
-# Social widget
-SOCIAL = (
-    ("You can add links in your config file", "#"),
-    ("Another social link", "#"),
-)
+ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{slug}/'
+ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{slug}/index.html'
+
+# Custom Home page
+DIRECT_TEMPLATES = (('index', 'blog', 'tags', 'categories', 'archives'))
+TEMPLATE_PAGES = {'home.html': 'index.html',}
 
 DEFAULT_PAGINATION = 10
 
