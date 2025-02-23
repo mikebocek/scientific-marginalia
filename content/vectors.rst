@@ -44,23 +44,22 @@ There's another way that people sometimes write vectors. Instead of grouping the
 
 More often though, we'll write equations with vectors using variables, rather than explicitly writing out the components of the vector. This raises a problem - probably every object you've used in the past has been a sort of number (an integer, fraction, real number, etc), so we haven't had to be very careful with notation. Vectors are the first things that most of us work with in math that are not just numbers, and so there's a few ways that mathematicians and physicists use to distinguish them. 
 
-The most explicit way is to draw a little arrow above the variable, like :math:`\vec{v}`. 
-
-Alternatively, it's not uncommon to just bold any vector variables, like :math:`\mathbf{v}` - that's what we'll use here for most cases.
- 
-In quantum mechanics specifically, there's a special sort of notation that gets used for vectors to illustrate that they are being used in a more "abstract" sense - we would write the vector v as :math:`|v\rangle`. 
+Alternatively, it's not uncommon to just bold any vector variables, like :math:`\mathbf{v}` - that's what we'll use here for most cases. Alternatively, you will sometimes see people draw a little arrow above the variable, like :math:`\vec{v}`.  Finally, in quantum mechanics there's a special sort of notation that gets used for vectors to illustrate that they are being used in a more "abstract" sense - we would write the vector v as :math:`|v\rangle`.
 
 Adding vectors 
 ==============
 
 Like we saw in the demo above, we can add vectors by adding their components. Mathematically that's about as easy as it can get. 
 
-Vector addition is commutative (doesn't depend on order.) This is straightforward enough to see from the math - after all, we know that order doesn't matter for addition, and all that we're doing here is adding numbers together. Visually this ends up being pretty striking though - in the demo below, you can shuffle the order of the vectors that you drew above - notice that no matter what the red arrow stays the same.
+Vector addition is commutative (doesn't depend on order.) This is straightforward enough to see from the math - after all, we know that order doesn't matter for addition, and all that we're doing here is adding numbers together. So if we add :math:`\begin{bmatrix}a\\b\end{bmatrix} + \begin{bmatrix}c\\d\end{bmatrix}`, that's the same as :math:`\begin{bmatrix}a+c\\b+d\end{bmatrix}` which we could then choose to re-write as  :math:`\begin{bmatrix}c\\d\end{bmatrix} + \begin{bmatrix}a\\b\end{bmatrix}`. 
 
-Magnitude and direction
-=======================
+Visually this ends up being pretty striking though - in the demo below, we'll automatically shuffle the addition order of the vectors that you drew above. Notice that no matter how we shuffle things, they still add up to the same result! 
 
-TODO 
+.. raw:: html
+
+    <canvas id="figure-2c-commuitivity" width="300" height="200">Visualization showing that vector addition is commutitive</canvas>
+    <script src="interactive/fig2c_vector_shuffle.js" type="module" defer></script>
+
 
 Can we multiply vectors?
 ========================
@@ -80,9 +79,23 @@ One way to think about multiplication is that it's a way to simplify repeated ad
 
 Extending it a little further, we can see more generally that this definition of multiplication basically just involves multiplying every element of the vector by the same number - in mathematical language 
 
+:math:`a \cdot \mathbf{v} = a \cdot \begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}a \cdot x\\ a \cdot y\end{bmatrix}`
+
+There's not really any need for :math:`a` to be an integer here then - we can happily multiply every element of a vector by :math:`-2`, or :math:`\frac{1}{2}`, or :math:`\pi`, or really whatever number we want. 
+
+What does this "mean" more generally? In the demo below, you can draw a vector and then see what the effect of multiplying differnet numbers on it would be. 
 
 
-What does this "mean" more generally? If you play around with the demo below, you can see that 
+.. raw:: html
+
+    <div> 
+    <input type="range" id="scale-slider" name="scale-slider" min="-4" max="4" step="0.1"/>
+    <label for="scale">Scale</label>
+    </div>
+    <canvas id="figure-2d-scaling" width="300" height="200">Visualization of scaling a vector</canvas>
+    <script src="interactive/fig2d_scaling.js" type="module" defer></script>
+
+One common way to think about this is that the number you use to multiply the vector re-sizes (or "scales") the whole vector, while keeping it pointing in the same direction. Because of this, these numbers are then often called scalars - and in fact, in the context of vector algebra we often will call standalone numbers "scalars" as a matter of terminlology.
 
 .. [#] Of course, there's no reason why "east" has to be positive and "west" has to be negative here. We could easily invert the two and end up with the same conclusion. 
 
