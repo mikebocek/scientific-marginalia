@@ -89,9 +89,15 @@ What does this "mean" more generally? In the demo below, you can draw a vector a
 .. raw:: html
 
     <div> 
-    <input type="range" id="scale-slider" name="scale-slider" min="-4" max="4" step="0.1"/>
-    <label for="scale">Scale</label>
+    <input type="range" id="scale-slider" name="scale-slider" min="-2" max="2" step="0.05" list="markers" style="width: 300px"/>
     </div>
+    <datalist id="markers">
+    <option value="-1" ></option>
+    <option value="-1"></option>
+    <option value="0" ></option>
+    <option value="1" ></option>
+    <option value="2" ></option>
+    </datalist>
     <canvas id="figure-2d-scaling" width="300" height="200">Visualization of scaling a vector</canvas>
     <script src="interactive/fig2d_scaling.js" type="module" defer></script>
 

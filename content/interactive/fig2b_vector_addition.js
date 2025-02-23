@@ -28,13 +28,13 @@ class Figure2B extends VectorViz {
         this.clearDisplayBase();
     
         if (vectorPath.length > 1) {
-            ctx.font = '12px sans-serif'
+            this.ctx.font = '12px sans-serif'
             const diffs = vectorPath.slice(1).map((e, i) => e.sub(vectorPath[i]));
             const distance = Math.round(diffs.reduce((i, j) => i + j.getLength(), 0), 2);
             const displacement = Math.round(vectorPath.at(-1).sub(vectorPath.at(0)).getLength());
-            ctx.fillStyle = '#333333';
-            ctx.fillText(`Displacement: ${displacement}`, 10, 15);
-            ctx.fillText(`Distance: ${distance}`, 10, 30);
+            this.ctx.fillStyle = '#333333';
+            this.ctx.fillText(`Displacement: ${displacement}`, 10, 15);
+            this.ctx.fillText(`Distance: ${distance}`, 10, 30);
         }
     }
 

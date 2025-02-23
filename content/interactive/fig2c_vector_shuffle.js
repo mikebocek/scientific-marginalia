@@ -14,6 +14,7 @@ class Figure2C extends VectorViz {
            draw on 
          */
         this.clearDisplayBase();
+        let ctx = this.ctx;
     
         if (vectorPath.length > 1) {
             ctx.font = '12px sans-serif'
@@ -27,7 +28,6 @@ class Figure2C extends VectorViz {
     }
 
     drawCurrPath() {
-        console.log("Run")
         // A little weird - but we sort of made the mistake of storing 
         // our Vector2 elements as an array of positions on the canvas - so
         // we need to convert to "differences", shuffle those, and then 
