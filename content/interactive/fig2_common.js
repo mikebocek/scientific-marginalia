@@ -119,6 +119,7 @@ export class VectorViz {
         this.HEIGHT = this.canvas.getAttribute('height');
         this.WIDTH = this.canvas.getAttribute('width');
         this.PIXELS_PER_UNIT = 20; // Pixels
+        this.origin = new Vector2(this.WIDTH/2, this.HEIGHT/2);
     }
 
     clearDisplayBase() {
