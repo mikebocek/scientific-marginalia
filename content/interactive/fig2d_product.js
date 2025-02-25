@@ -9,12 +9,12 @@ class Figure2D1 extends VectorViz {
         this.clearDisplayBase();
 
 
-        ctx = this.ctx;
+        let ctx = this.ctx;
         ctx.strokeStyle = "#AAAAAA";
         ctx.fillStyle = "#AAAAAA";
         ctx.lineWidth = 4;
-        this.drawVec(this.origin, this.origin.add(new Vector2(0, 40)));
-        this.drawVec(this.origin, this.origin.add(new Vector2(40, 0)));
+        this.drawVec(ctx, this.origin, this.origin.add(new Vector2(0, -80)));
+        this.drawVec(ctx, this.origin, this.origin.add(new Vector2(80, 0)));
     }
 }
 
@@ -26,12 +26,12 @@ class Figure2D2 extends VectorViz {
 
         this.clearDisplayBase();
 
-        ctx = this.ctx;
+        let ctx = this.ctx;
         ctx.strokeStyle = "#AAAAAA";
         ctx.fillStyle = "#AAAAAA";
         ctx.lineWidth = 4;
-        this.drawVec(this.origin, this.origin.add(new Vector2((40, 40).scale(Math.sqrt(2)))));
-        this.drawVec(this.origin, this.origin.add(new Vector2(40, -40).scale(Math.sqrt(2))));
+        this.drawVec(ctx, this.origin, this.origin.add((new Vector2(80, -80)).scale(Math.sqrt(2)/2)));
+        this.drawVec(ctx, this.origin, this.origin.add((new Vector2(80, 80)).scale(Math.sqrt(2)/2)));
     }
 }
 
