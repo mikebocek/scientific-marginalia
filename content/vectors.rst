@@ -134,10 +134,27 @@ What does this "mean" more generally? In the demo below, you can draw a vector a
 One common way to think about this is that the number you use to multiply the vector re-sizes (or "scales") the whole vector, while keeping it pointing in the same direction. Because of this, these numbers are then often called scalars - and in fact, in the context of vector algebra we often will call standalone numbers "scalars" as a matter of terminlology.
 
 
-Magnitude and direction
-=======================
+The length of a vector
+======================
 
-So far, we've treated vectors as a way to generalize 
+There's one detail that we've glossed over so far, but that's worth calling out explicitly. In the earlier demo where we added vectors together, we kept track of both the total distance, and the overall displacement that the path took. But we didn't actually describe how to calculate these lengths. Obviously for a vector like :math:`\begin{bmatrix}0\\20\\0\end{bmatrix}` it's pretty obvious how to do this - we only move in one direction, so the total length is just 20. 
+
+What about for a vector that has non-zero components in multiple directions? There's a nice geometric way to get this - we can just measure the distance along each of the axes, and then make a right triangle. The hypotenuse (diagonal) is the length of the vectors, while the sides are just the distances along each axis. But these are just the components of the vectors. The diagram below is probably helpful: 
+
+.. raw:: html
+
+    <canvas id="figure-2ea-distance" width="300" height="200">Visualization showing that vector addition is commutitive</canvas>
+    <script src="interactive/fig2ea_distance.js" type="module" defer></script>
+
+We can then just use the pythagorean theorem to get the length! So for a vector :math:`\mathbf{v} = \begin{bmatrix}x\\y\end{bmatrix}`, the length is :math:`\sqrt{x^2 + y^2}`. The logic works for 3D (or even higher-dimensional) vectors as well - for a 3d vector, the length is :math:`\sqrt{x^2 + y^2 + z^2}`. In general the shorthand for the length of a vector (of any dimensionality) is :math:`\left\lVert\mathbf{v}\right\rVert`. 
+
+It's also sometimes useful to be able to go backwards - if we have the length and we want to get the sides, we can use the cosine and sine functions to get them. Using the angle that we've shown on the plot, the coordinates of the vector will generally be :math:`\begin{bmatrix}\left\lVert\mathbf{v}\right\rVert cos(\theta) \\ \left\lVert\mathbf{v}\right\rVert sin(\theta)`. If you ever get confused though, draw a diagram, and rely on Soh-Cah-Toh (sine is the opposite side to the angle, cosine is the adjacent side).
+
+Length (magnitude) and direction
+================================
+
+People will often talk about vectors having a "magnitude" (which is the same as length), and a "direction". In some ways this is just another 
+
 
 Multiplication as an "Area"
 ===========================
@@ -152,7 +169,7 @@ It would make a lot of sense then if we could multiply two vectors together to g
 
 The third idea might seem a little weird at first. In the real world it's not too hard to understand what we mean by "negative displacement" - if positive is East, then negative is West. But what's a negative area? There's not really examples of a shape that "subtracts" area away from other shapes. Even if it seems a little unnatrual at first, there are quite a few physical situations where it makes sense to be able to cancel out areas the same way we cancel out vectors.
 
-It turns out that there's a mathematical construct that exactly represents this idea - the *wedge product*. For two vectors :math:`\mathbf{u}` and :math:`\mathbf{v}`, we write the wedge product like :math:`\mathbf{u} \wedge \mathbf{v}`.
+It turns out that there's a mathematical construct that exactly represents this idea - the *wedge product*. For two vectors :math:`\mathbf{u}` and :math:`\mathbf{v}`, we write the wedge product like :math:`\mathbf{u} \wedge \mathbf{v}`. Below, you can try placing some vectors and see the result of the wedge product in 2D for them:
 
 
 .. raw:: html
@@ -172,13 +189,17 @@ Although we can't wedge together more than 2 vectors in 2D, the wedge product is
 .. math ::
      (\mathbf{u} \wedge \mathbf{v}) \wedge \mathbf{w} = \mathbf{u} \wedge (\mathbf{v} \wedge \mathbf{w})
 
-Maybe surprisingly though - the wedge product is *not* commutative. In fact, we can be even more specific - if we reverse the order of the two vectors, we get the negative version of the area. In mathematical language we say that the wedge product is *anticommutitive* - meaning that if we reverse the order, we get the negative version.
+Maybe surprisingly though - the wedge product is *not* commutative. In fact, we can be even more specific - if we reverse the order of the two vectors, we get the negative version of the area. In mathematical language we say that the wedge product is *anticommutitive*.
 
 .. math::
     
     \mathbf{u} \wedge \mathbf{v} = -\mathbf{v} \wedge \mathbf{u} 
 
 Another interesting thing about this equation is that it immediately implies that :math:`\mathbf{v} \wedge \mathbf{v} = 0`, and :math:`\mathbf{v} \wedge -\mathbf{v} = 0` for any vector (can you see why?) 
+
+One more thing - how do we decide what is "negative" area and what is "positive?" The rule that we follow is called the "right-hand" rule. What you can do is the fingers on your right hand in the direction of the first vector (:math:`\mathbf{u}`), and then curl them in the direction of the second vector (:math:`\mathbf{v}`). If your thumb points up, then the area is positive. If it points down, the area is negative.
+
+So what sort of object is :math:`\mathbf{u} \wedge \mathbf{v}`? Because it represents a sort of "oriented area" created out of two vectors, it's typically called a *bivector*. Similarly, the result of :math:`\mathbf{u} \wedge \mathbf{v}) \wedge \mathbf{w}` is a 3D volume, which we call a *trivector*. 
 
 A quick example calculation
 ---------------------------
@@ -217,30 +238,37 @@ Basically phyicists like to pretend like the "area" of the bivector is actually 
 
 Since we're putting two vectors into the product, and getting a vector back out, this looks an awful lot like a way to multiply vectors. Physicists call this process the "cross product", and typically write it like :math:`\mathbf{u} \times \mathbf{v}`.
 
-Because the cross product is grounded in the wedge product, it follows similar rules. Most importantly 
+The vector that we get has a length that is the same as the *area* spanned by the wedge product :math:`\mathbf{u} \wedge \mathbf{v}`. This means that many of the same formulas and results that we saw before still apply to the cross product - for example 
 
 .. math::
 
     \mathbf{u} \times \mathbf{v} = -\mathbf{v} \times {u}
 
-Meaning that the cross product of a vector with iself is zero, that (as before) perpendicular vectors have the maximum value, etc. A useful result for the cross product that frequently comes in handy is that the magnitude of the output vector has a really nice relationship to the inputs. If we have :math:`\mathbf{u} \times \mathbf{v} = \mathbf{w}` then 
+and 
+
+.. math::
+    \mathbf{b} \times \mathbf{v} = 0
+
+Here's one other useful result - if we have :math:`\mathbf{u} \times \mathbf{v} = \mathbf{w}` then 
 
 .. math::
     \lvert \mathbf{w} \rvert =  \lvert \mathbf{u} \rvert \lvert \mathbf{v} \rvert sin(\theta)
 
-Where :math:`\theta` is the angle between the two vectors.
+Where :math:`\theta` is the angle between the two vectors. You can sanity check this with what we alrady know - for example, :math:`sin(0) = 0` and :math:`sin(90^{\circ}) = 1`, which squares with our understanding that two parallel vectors have a wedge product of 0, and two perpendicular vectors have a wedge product of their lengths (since they form a rectangle.)
 
-This works but it's also a little hacky - if you think about it, there's actually no way to get this process to work outside of 3-dimensions, because we're relying on the fact that there's a single vector that points directly outwards from a plane. Still, we live in a 3 dimensional world, so we can make it work!
+One thing that you might have noticed - technically we have two choices of vectors that are perpendicular to a plane - one "above" and one "below". The rule is the same as for the wedge product, where we use a "right hand" convention. One common trick is to point the fingers on your right hand in the direction of the first vector, and then curl them towards the second. The direction that your thumb points is the direction of the cross product.
+
+Here's one other sort of weird thing about the cross product - it only really works in 3 dimensions! We're relying on the coincidence that the wedge product of two vectors is an area - which leaves one more dimension that we can use for the cross-product vector. 
 
 There's one more way to multiply vectors that we should cover, and then we can call it a day. This is frankly probably the most interesting of the three products that we'll talk about, but in many ways it's probably the hardest to get your head around.
 
 
-The inner (dot) product
-=======================
+The dot product
+===============
 
-In a lot of situations in physics, we'd like to be able to multiply vectors in a way that prioritizes *parallel* vectors. We've already seen one example of such a product - the Hardamard product will obviously be large for two vectors that are exactly parallel to each other. But we've also seen that the Hardamard product is highly dependent on how aligned the vectors are with the coordinate system in question. 
+In a lot of situations in physics, we'd like to be able to multiply vectors in a way that prioritizes *parallel* vectors. As a rough example, let's think about pushing a heavy object on wheels 1m across a floor, 1m up a :math:`45^{\circ}` ramp, and lifting it 1m straight up. Although we haven't really talked about it, we can think of gravity as a vector that points straight down for this example. In the first situation, we're perpendicular to the force of gravity, in the second we're halfway angled against it, and in the third we're exactly parallel (but opposite). Correspondingly the situations are the same order of "difficulty." Similarly, if we were to double the distance to 2m (or double the strength of gravity), it would become twice as difficult. It would be nice to have a product that we could use to model these situations.
 
-Is there a way to modify the Hardamard product so that it no longer is so dependent on the specific orientation of the input vectors? Let's go back to the two examples that we had above 
+The Hardamard product doesn't seem totally wrong here, but we already know that it has some weird problems with rotations. Is there a way to modify the Hardamard product so that it no longer is so dependent on the specific orientation of the input vectors? Let's go back to the two examples that we had above 
 
 .. math::
     
@@ -249,7 +277,19 @@ Is there a way to modify the Hardamard product so that it no longer is so depend
 .. math:: 
     `\begin{bmatrix}2\sqrt{2} \\ 2\sqrt{2}\end{bmatrix} \odot \begin{bmatrix}2\sqrt{2} \\ -2\sqrt{2}\end{bmatrix} =  \begin{bmatrix}8\\-8\end{bmatrix}`
 
-Here's someting not obvious at all about the results - even though the vectors are different, if we *add up* the individual elements of these vectors, we find that they're both exactly zero. Of course, that's not much of a matheaticial proof, but it's a hint that we might be on to something here. Let's try to generalize this a little bit.
+Here's someting not obvious at all about the results - even though the vectors are different, if we *add up* the individual elements of these vectors, we find that they're both exactly zero (8 -8, and 0 + 0). Of course, that's not much of a matheaticial proof, but it's a hint that we might be on to something here.
+
+In fact, we've described probably the most important way that we have to multiply vectors - the *dot product*. Although we don't quite have the machinery to prove it yet, the dot product of two vectors doesn't depend on their angle relative to our coordinate system - only their angles compared to each other. For 2 2D vectors, we define the dot product as 
+
+.. math::
+    \mathbf{u} \odot \mathbf{v} = \begin{bmatrix}x_1\\y_1\end{bmatrix} \odot \begin{bmatrix}x_2\\y_2\end{bmatrix} = x_1y_1 + x_2y_2
+
+Similarly for 3D vectors, we'd have 
+
+.. math::
+    \mathbf{u} \odot \mathbf{v} = \begin{bmatrix}x_1\\y_1\\z_1\end{bmatrix} \odot \begin{bmatrix}x_2\\y_2\\z_2\end{bmatrix} = x_1x_2 + y_1y_2 + z_1z_2
+
+Unlike the cross product, the dot product works for vectors in any dimension. What's a little weird though is that we don't get a vector out - instead we get a number (i.e. a *scalar*). How should we interpret it? 
 
 
 The matrix product
@@ -280,7 +320,7 @@ Let's try multiplying these (in order) by the vector :math:`\begin{bmatrix}1\\2\
 
     \begin{bmatrix}1\\0\\0\end{bmatrix}\cdot\begin{bmatrix}1\\2\\3\end{bmatrix} = 1;\begin{bmatrix}0\\1\\0\end{bmatrix}\cdot\begin{bmatrix}1\\2\\3\end{bmatrix} = 2; \begin{bmatrix}0\\0\\1\end{bmatrix}\cdot\begin{bmatrix}1\\2\\3\end{bmatrix} = 3
 
-If we were to stitch these three numbers together into a new vector, we'd end up back with :math:`\begin{bmatrix}1\\2\\\3\end{bmatrix}`. In a way, the three vectors we picked are interesting because they each "select" out either the first, second, or third component of the vector.
+If we were to stitch these three numbers together into a new vector, we'd end up back with :math:`\begin{bmatrix}1\\2\\3\end{bmatrix}`. In a way, the three vectors we picked are interesting because they each "select" out either the first, second, or third component of the vector.
 
 For reasons that we'll see a little later, we don't actually usually write these three "new" vectors in this format of columns. Instead, when we want to take a dot product, we'll write 
 
