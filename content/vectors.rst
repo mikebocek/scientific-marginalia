@@ -133,8 +133,11 @@ What does this "mean" more generally? In the demo below, you can draw a vector a
 
 One common way to think about this is that the number you use to multiply the vector re-sizes (or "scales") the whole vector, while keeping it pointing in the same direction. Because of this, these numbers are then often called scalars - and in fact, in the context of vector algebra we often will call standalone numbers "scalars" as a matter of terminlology.
 
-Of course, this isn't quite "vector" multiplication in the way that you might typically think of it, since our process here multiplies a vector by a scalar, rather than a vector by another vector. That leads us to our next idea - 
 
+Magnitude and direction
+=======================
+
+So far, we've treated vectors as a way to generalize 
 
 Multiplication as an "Area"
 ===========================
@@ -149,7 +152,16 @@ It would make a lot of sense then if we could multiply two vectors together to g
 
 The third idea might seem a little weird at first. In the real world it's not too hard to understand what we mean by "negative displacement" - if positive is East, then negative is West. But what's a negative area? There's not really examples of a shape that "subtracts" area away from other shapes. Even if it seems a little unnatrual at first, there are quite a few physical situations where it makes sense to be able to cancel out areas the same way we cancel out vectors.
 
-It turns out that there's a mathematical construct that exactly represents this idea - the *wedge product*. For two vectors :math:`\mathbf{u}` and :math:`\mathbf{v}`, we write the wedge product like :math:`\mathbf{u} \wedge \mathbf{v}`. The product is distributive, so 
+It turns out that there's a mathematical construct that exactly represents this idea - the *wedge product*. For two vectors :math:`\mathbf{u}` and :math:`\mathbf{v}`, we write the wedge product like :math:`\mathbf{u} \wedge \mathbf{v}`.
+
+
+.. raw:: html
+
+    <canvas id="figure-2f-wedge-product" width="300" height="200">Visualization showing that vector addition is commutitive</canvas>
+    <script src="interactive/fig2f_wedge_product.js" type="module" defer></script>
+
+
+The product is distributive, so 
 
 .. math::
    
@@ -171,7 +183,7 @@ Another interesting thing about this equation is that it immediately implies tha
 A quick example calculation
 ---------------------------
 
-Let's take it a step further and take two 2D vectors - say :math:`\mathbf{u} = \begin{bmatrix}1\\2\end{bmatrix}` and :math:`\mathbf{v} = \begin{bmatrix}3\\1\end{bmatrix}`, and see if we can use this equation to get the wedge product between them. We'll re-write these vectors in a more suggestive way using the "unit-vector" notation above - so :math:`\mathbf{u} = \widehat{i} + 2\widehat{j}` and :math:`\mathbf{v} = 3\widehat{i} + 5\widehat{j}`. Now let's multiply them out - we'll treat the "wedge" just like a normal multiplication sign, which gets us 
+Let's take it a step further and take two 2D vectors - say :math:`\mathbf{u} = \begin{bmatrix}1\\2\end{bmatrix}` and :math:`\mathbf{v} = \begin{bmatrix}3\\5\end{bmatrix}`, and see if we can use this equation to get the wedge product between them. We'll re-write these vectors in a more suggestive way using the "unit-vector" notation above - so :math:`\mathbf{u} = \widehat{i} + 2\widehat{j}` and :math:`\mathbf{v} = 3\widehat{i} + 5\widehat{j}`. Now let's multiply them out - we'll treat the "wedge" just like a normal multiplication sign, which gets us 
 
 .. math::
     
@@ -190,23 +202,6 @@ Now we'll use our rule above to flip the "sign" for the second wedge. We'll also
     (\widehat{i} \wedge 5\widehat{j})  - (3\widehat{i} \wedge 2\widehat{j}) = ((1 \cdot 5) - (3 \cdot 2))\widehat{i} \wedge \widehat{j}
 
 We can generalize this some (and you should try!) For two vectors :math:`\mathbf{u} = \begin{bmatrix}a\\b\end{bmatrix}` and :math:`\mathbf{v} = \begin{bmatrix}c\\d\end{bmatrix}`, can you work out what :math:`\mathbf{u} \wedge \mathbf{v}` is?
-
-How to think about the wedge product
-------------------------------------
-
-Even in our example calculation above, we ended up having to write the final answer in terms of :math:`\widehat{i} \wedge \widehat{j}`. But I think there's two things that we're missing 
-
-#. How should we actually think about interpreting this calculation
-#. What acutally is :math:`\widehat{i} \wedge \widehat{j}`?
-
-The answer to the first question is actually pretty straightforward. We can think of the "wedge" product as something like the area of a parallelogram created from two vectors. I've got a demo below that probably will be helpful in visualizing what this means.
-
-.. raw:: html
-
-    <canvas id="figure-2f-wedge-product" width="300" height="200">Visualization showing that vector addition is commutitive</canvas>
-    <script src="interactive/fig2f_wedge_product.js" type="module" defer></script>
-
-To answer the second question - we already know that :math:`\widehat{i} \wedge \widehat{j}` represents an "area" made out of the two unit vectors representing the X and Y axes. Since this object is made out of two vectors, mathematicians call it a *bivector*. In 3D, we can also combine two vectors to create a similar "area" element, or even 3 vectors to create a "volume" element called a *trivector*. Loosely you can think of the wedge product as a way to build area/volume objects out of individual vectors. More generally these objects are called *k-blades* - and can even represent hypervolumes in dimensions higher than 3D.
 
 The cross product
 -----------------
@@ -243,7 +238,52 @@ There's one more way to multiply vectors that we should cover, and then we can c
 The inner (dot) product
 =======================
 
-What if we had a product that looked like the dot product, but 
+In a lot of situations in physics, we'd like to be able to multiply vectors in a way that prioritizes *parallel* vectors. We've already seen one example of such a product - the Hardamard product will obviously be large for two vectors that are exactly parallel to each other. But we've also seen that the Hardamard product is highly dependent on how aligned the vectors are with the coordinate system in question. 
+
+Is there a way to modify the Hardamard product so that it no longer is so dependent on the specific orientation of the input vectors? Let's go back to the two examples that we had above 
+
+.. math::
+    
+    `\begin{bmatrix}4\\0\end{bmatrix} \odot \begin{bmatrix}0\\4\end{bmatrix} =  \begin{bmatrix}0\\0\end{bmatrix}`
+
+.. math:: 
+    `\begin{bmatrix}2\sqrt{2} \\ 2\sqrt{2}\end{bmatrix} \odot \begin{bmatrix}2\sqrt{2} \\ -2\sqrt{2}\end{bmatrix} =  \begin{bmatrix}8\\-8\end{bmatrix}`
+
+Here's someting not obvious at all about the results - even though the vectors are different, if we *add up* the individual elements of these vectors, we find that they're both exactly zero. Of course, that's not much of a matheaticial proof, but it's a hint that we might be on to something here. Let's try to generalize this a little bit.
+
+
+The matrix product
+==================
+
+In total we've explored three notions of "multiplying" vectors
+
+#. The Hardamard product (directly multiplying vector elements)
+#. Scaling a vector by a number 
+#. The wedge product (and its cousin the cross product)
+#. The inner product (dot product)
+
+But all of these are sort of unsatisfying - they're either not very useful for what we're trying to model (i.e. the Hardamard product), extremely limited in what they represent (the cross product or the scalar product), or not really a map from :math:`\mathbb{R}^n \rightarrow \mathbb{R}^n` in the way that we'd really expect (like the inner product and the wedge product.)
+
+Here's a fun idea though that does get us a pretty general map from :math:`\mathbb{R}^n \rightarrow \mathbb{R}^n`. We know that the inner product can take two vectors, and output a single scalar quantity tellig us (loosely) how "aligned" the two vectors are with each other. What if instead of taking a single inner product, we took multiple? 
+
+A vector, after all, is made up of a series of scalar numbers. So if we had a three-dimensional vector, we could just take 3 scalar products with 3 other 3-dimensional vectors, and obtain a new vector that is "multiplied" in some sense by this new set of vectors.
+
+This is a little abstract - let's start with a simple example. Let's say that we had the following three vectors 
+
+.. math::
+
+    \begin{bmatrix}1\\0\\0\end{bmatrix};\begin{bmatrix}0\\1\\0\end{bmatrix}; \begin{bmatrix}0\\0\\1\end{bmatrix}
+
+Let's try multiplying these (in order) by the vector :math:`\begin{bmatrix}1\\2\\3\end{bmatrix}`. We'll take three dot products 
+
+.. math::
+
+    \begin{bmatrix}1\\0\\0\end{bmatrix}\cdot\begin{bmatrix}1\\2\\3\end{bmatrix} = 1;\begin{bmatrix}0\\1\\0\end{bmatrix}\cdot\begin{bmatrix}1\\2\\3\end{bmatrix} = 2; \begin{bmatrix}0\\0\\1\end{bmatrix}\cdot\begin{bmatrix}1\\2\\3\end{bmatrix} = 3
+
+If we were to stitch these three numbers together into a new vector, we'd end up back with :math:`\begin{bmatrix}1\\2\\\3\end{bmatrix}`. In a way, the three vectors we picked are interesting because they each "select" out either the first, second, or third component of the vector.
+
+For reasons that we'll see a little later, we don't actually usually write these three "new" vectors in this format of columns. Instead, when we want to take a dot product, we'll write 
+
 
 
 .. [#] Of course, there's no reason why "east" has to be positive and "west" has to be negative here. We could easily invert the two and end up with the same conclusion. 
