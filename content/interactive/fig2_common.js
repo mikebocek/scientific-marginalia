@@ -30,6 +30,10 @@ export class Vector2 {
         }
         return new Vector2(this.x /length, this.y/length);
     }
+
+    dot(vec) { 
+        return (this.x * vec.x) + (this.y * vec.y);
+    }
 }
 
 //Singleton object to handle shared state in the vector path

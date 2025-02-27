@@ -1,6 +1,6 @@
 import {Vector2, VectorViz} from "./fig2_common.js";
 
-class Figure2EA extends VectorViz {
+class Figure2G extends VectorViz {
     constructor(viz_id) {
         super(viz_id);
 
@@ -29,13 +29,24 @@ class Figure2EA extends VectorViz {
         ctx.lineWidth = 1;
         ctx.strokeStyle = '#AA4444'
         ctx.fillStyle = '#AA4444'
-        this.drawVec(ctx, this.origin, this.origin.add(this.vec), true);
+        ctx.font = 'bold 12px sans-serif'
+        const endPoint = this.origin.add(this.vec);
+        this.drawVec(ctx, this.origin, endPoint, false);
+        const xOffset = this.vec.x < 0?-20:10;
+        const yOffset = this.vec.y < 0?10:-10;
+        ctx.fillText(`u`, endPoint.x + xOffset, endPoint.y + yOffset);
+
+
+        this.drawVec(ctx, this.origin, this.origin.add(new Vector2(100, 0)), false)
+        ctx.fillText(`v`, this.origin.x + 100, this.origin.y -20);
 
         ctx.lineWidth = 4;
         ctx.strokeStyle = '#AAAAAA'
         ctx.fillStyle = '#AAAAAA'
         this.drawVec(ctx, this.origin, new Vector2(this.origin.x + this.vec.x, this.origin.y), false);
-        this.drawVec(ctx, new Vector2(this.origin.x + this.vec.x, this.origin.y), this.origin.add(this.vec), false);
+        ctx.fillText(`|u|cos(θ)`, 
+                     this.origin.x + this.vec.x + xOffset, 
+                     this.origin.y + yOffset * 1.5);
 
         if (Math.abs(this.vec.x) > 10 && Math.abs(this.vec.y) > 10) {
             ctx.beginPath();
@@ -50,10 +61,12 @@ class Figure2EA extends VectorViz {
             ctx.fillText('θ', normVec.x, normVec.y);
         }
 
-        const length = Math.round(10 * this.vec.getLength() / (this.PIXELS_PER_UNIT**2))/10;
+        const roundedVec = new Vector2(Math.round(this.vec.x / this.PIXELS_PER_UNIT), 
+                                       Math.round(this.vec.y / this.PIXELS_PER_UNIT))
+        const dotProduct = Math.round(10 * roundedVec.dot(new Vector2(100, 0)) / (this.PIXELS_PER_UNIT))/10;
         ctx.font = '12px sans-serif'
         ctx.fillStyle = '#333333';
-        ctx.fillText(`Length: ${length}`, 10, 15);
+        ctx.fillText(`Dot product: ${dotProduct}`, 10, 15);
     }
 
     tryVec(e) {
@@ -68,4 +81,4 @@ class Figure2EA extends VectorViz {
 
 }
 
-const fig2ea = new Figure2EA('figure-2ea-distance');
+const fig2g = new Figure2G('figure-2g-dot-product');
