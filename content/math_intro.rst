@@ -14,11 +14,17 @@ Oh no - math
 
 I think most of us have a rocky relationship with math at best (myself included). For most people I think this probably started with our experiences in elementary and middle school - where math is a mix of memorization (i.e. knowing that 6 times 7 is 42), and manually doing things with pen and paper that a computer can do better (long dividing 6336 by 72). None of this is exactly riveting (especially when you're 10), and worse, there's nothing you can really build off of. Knowing that :math:`6336/72 = 88` doesn't help you solve any other problems (unless your next problem is :math:`72 * 88`).
 
-The situation doesn't really improve much in middle school and high school. There, we move from algorithms that manipulate numbers directly to rules for moving symbols around in equations. So we get to solve such riveting problems as showing that you can re-write :math:`(x + 1)^3 = 3x^2 + 3x - 18 ` as `x^3 - 19 = 0`. If you're feeling really crazy, maybe you get to solve this to show that x is the cube root of 19. But this again isn't exactly exciting - and in fact it's still work that computers are quite a bit better at than we are.
+The situation doesn't really improve much in middle school and high school. There, we move from algorithms that manipulate numbers directly to rules for moving symbols around in equations. So we get to solve such riveting problems as showing that you can re-write :math:`(x + 1)^3 = 3x^2 + 3x - 18 ` as :math:`x^3 - 19 = 0`. If you're feeling really crazy, maybe you get to solve this to show that x is the cube root of 19. But this again isn't exactly exciting - and in fact it's still work that computers are quite a bit better at than we are. At the end of high school you might take calculus, which - again - involves slightly more advanced symbolic manipulation. You might have to notice that a problem like 
 
-The problem of course is that these are important skills - and not necessarily easy ones to pick up. 
+.. math::
 
-One of the toughest things is to get used to the idea that higher level math is about *abstraction* most of the time - meaning that we're trying to create less (not more) work for ourselves by recognizing patterns, and building tools for ourselves. 
+    \integral \frac{x}{cos(x^2)} dx 
+
+Can be re-written 
+
+.. math::
+
+
 
 An example
 ==========
@@ -66,11 +72,30 @@ A better proof
 
 Let's turn to a proof that doesn't require any words at all. We'll continue to use an "inductive approach," but instead of using algebra, we'll draw some pictures. The base case is easy - a single square: 
 
-Let's go one step further - if we want to create the next perfect square, we have to add 3 "squares" to the drawing - one on top of our original square, one to the right, and then one on the corner: 
+.. raw:: html
+
+    <canvas id="figure-1a-square" width="300" height="200">Base case of a single square</canvas>
+    <script src="interactive/fig1a_square_diagrams.js" type="module" defer></script>
+
+Let's go one step further - if we want to create the next perfect square, we have to add 3 "squares" to the drawing - one on top of our original square (in blue), one to the right (in blue), and then one on the corner (in red): 
+
+.. raw:: html
+
+    <canvas id="figure-1b-square-2" width="300" height="200">First inductive step - additional side</canvas>
 
 For the next square, we'll add 5 squares - two on top, two to the right, and one on the corner: 
 
-So we can abstract this logic a little: for a square with a side length of N, we'll need to add N squares on top, N squares to the right, and then one square in the corner. 
+.. raw:: html
+
+    <canvas id="figure-1c-square-3" width="300" height="200">Second inductive step - additional side</canvas>
+
+At this point the pattern is pretty clear - but let's draw out one more step just for fun 
+
+.. raw:: html
+
+    <canvas id="figure-1d-square-4" width="300" height="200">Second inductive step - additional side</canvas>
+
+This makes it pretty clear that for a square with a side length of N, we'll need to add N squares on top, N squares to the right, and then one square in the corner to get the next square.
 
 This makes 2N + 1, which is the next odd number in the series, which completes the proof as above. 
 
@@ -82,10 +107,10 @@ How to go further
 
 So we've shown that the sum of the first N odd numbers is the square of N. That's not a generally useful fact - although (spoiler alert) we will see this come up later when we discuss the total number of quantum-mechanical orbitals in a hydrogen atom. Let's see if we can take this fact a little further, and figure out what the sum of *every number* up to a certain number is. Basicaly we're trying to generalize the sum
 
-    - 1 = 1
-    - 1 + 2 = 3
-    - 1 + 2 + 3 = 6
-    - ...
+- 1 = 1
+- 1 + 2 = 3
+- 1 + 2 + 3 = 6
+- ...
 
 These numbers are called the *triangular numbers*, since 
 
@@ -97,15 +122,33 @@ And the first few even numbers are
 
     - 2, 4, 6, 8, 10
 
-So the even numbers are just one larger than the odd numbers. Meaning that if we add the first N even numbers, it's the same as the first N odd numbers, but with one added to each number. Now if we have to add one to a number N times, that's just :math`N * 1`, which is obviously just N. So the sum of the first N odd numbers, and the first N even numbers, is just 
+So the even numbers are just one larger than the odd numbers. Meaning that if we add the first N even numbers, it's the same as the first N odd numbers, but with one added to each number. But if we add 1 to the sum N times, that's the same thing as adding :math:`N * 1` which is just N. So the sum of the first N even numbers is then just 
 
-:math:`N ^2 + N ^ 2 + 1 = 2N^2 + N`
+.. math:: 
 
-Are we done? Not quite - let's think about it. We're actually double-counting here - we've phrased the problem as the sum of the "first N odd numbers and the first N even numbers." But really what we'd like is the sum of all of the numbers up to a certain number - not the combination of odd and even numbers. To fix this, all we need to do is divide our number by two. So the sum of all numbers up to a certain number is 
+    N^2 + N
 
-:math:`\frac{N^2 + N}{2}`
+Now let's put the pieces together. This part is a little ugly - our logic requires us to sum up a specific count of odd and even numbers. But this count will depend on whether our number is odd or even - for example, summing up all the numbers to 5 would involve summing (1, 3, 5), and (2, 4), so we have one more odd number than even. But summing all the numbers up to 6 would be (1, 3, 5) and (2, 4, 6) - so we have two different cases that we need to treat slightly differently.
 
-What we've done here is taken a result, and then extended it to show something a little more powerful. In math terms, our first result (the sum of all odd numbers) is often called a "lemma", meaning an intermediate statment that we'll rely on to prove something stronger. Our final result (the sum of all the numbers up to N) we'll call a "*theorem*".
+In a proof it's totally valid to split up our logic and handle each of these cases separately - so long as there's not an infinite number of cases to handle of course! Let's start with the case where N is even. That means that we have to add up :math:`N/2` odd numbers and :math:`N/2` even numbers 
+
+.. math:: 
+
+    [(\frac{N}{2})^2 + \frac{N}{2}] +  [(\frac{N}{2})^2] = \frac{N^2}{4} +  \frac{N}{2} + \frac{N^2}{4} = \frac{N^2 + N}{2} = \frac{N(N+1)}{2}
+
+What about the case where N is odd? Then we have :math:`\frac{N - 1}{2}` even numbers, and :math:`\frac{N + 1}{2}`  odd numbers to sum up. So we can do the math the same way 
+
+.. math:: 
+
+    [(\frac{N - 1}{2})^2 + \frac{N - 1}{2}] +  [(\frac{N + 1}{2})^2] = \frac{N^2 - 2N + 1}{4} + \frac{N - 1}{2} + {N^2 + 2N + 1}{4} = \frac{N(N+1)}{2}
+
+Nice! We get the same result for odd numbers as even numbers - so we can now use the result that 
+
+.. math::
+
+    \sum_{i=1}^{N}{i} = \frac{N(N+1)}{2}
+
+Is there a nicer way to get this result?
 
 A child's proof
 ===============
@@ -126,7 +169,7 @@ So all we really have to do in the end is multiply 101 (the sum of the first and
 
 :math:`\frac{N}{2}{N + 1}`
 
-Which you'll recognize as the same equation from above. Again, we've found yet another way to get to the same result - but (to me at least) this is a more *satisfying* proof. It seems to not only show that our statement is correct, but provide some sort of explanation for *why* it's correct. 
+Which you'll recognize as the same equation from above. Again, we've found yet another way to get to the same result - but isn't this a lot more *satifsying*? After all, instead of wading through the logic with multiple different cases, we have a simple, intuitive explanation that makes the result seem inevitable. 
 
 Why don't we always prove things intuitively? 
 ==============================================
@@ -146,7 +189,7 @@ And through (increasingly) tedious work solve out the answers. Although it's def
 How we'll deal with math in these posts
 =======================================
 
-In writing these posts, I want to try to strike a balance. It's difficult (or impossible in a lot of cases) to really understand the spirit of what scientists are doing without being able to grapple with at least some of the math. And honestly some of the math that we'll see is genuinely cool - even by the standards of someone that doesn't really care about math. 
+
 
 .. [#] Mathematicians use "trivial" as a sort of pejorative term for things that *they* think are obvious 
 .. [#] The actual truth of this story is apparently a little shakier than I thought - see `this article <https://www.americanscientist.org/article/gausss-day-of-reckoning#:~:text=The%20teacher's%20aim%20was%20to,candidates%20for%20greatest%20mathematician%20ever.>` for a nice overview on the actual historicity of the story. 

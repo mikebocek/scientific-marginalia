@@ -181,7 +181,7 @@ The product is distributive, so
    
     (\mathbf{u} + \mathbf{v}) \wedge \mathbf{w} = \mathbf{u} \wedge \mathbf{w} + \mathbf{v} \wedge \mathbf{w}
 
-Although we can't wedge together more than 2 vectors in 2D, the wedge product is also associative. If we have 3 3D vectors :math:`\mathbf{u}, \mathbf{v}, \mathbf{w}`, then the order that we apply the wedge doesn't matter. 
+Although we can't wedge together more than 2 vectors in 2D, the wedge product is also associative. If we have 3 3D vectors :math:`\mathbf{u}, \mathbf{v}, \mathbf{w}`, then it doesn't matter how we choose to break the calcualtion down: 
 
 .. math ::
      (\mathbf{u} \wedge \mathbf{v}) \wedge \mathbf{w} = \mathbf{u} \wedge (\mathbf{v} \wedge \mathbf{w})
@@ -192,15 +192,21 @@ Maybe surprisingly though - the wedge product is *not* commutative. In fact, we 
     
     \mathbf{u} \wedge \mathbf{v} = -\mathbf{v} \wedge \mathbf{u} 
 
-Another interesting thing about this equation is that it immediately implies that :math:`\mathbf{v} \wedge \mathbf{v} = 0`, and :math:`\mathbf{v} \wedge -\mathbf{v} = 0` for any vector (can you see why?) 
+Another interesting thing about this equation is that it immediately implies that :math:`\mathbf{v} \wedge \mathbf{v} = 0`, and :math:`\mathbf{v} \wedge -\mathbf{v} = 0` for any vector
+
+.. admonition:: Excercise
+    
+     Use the fact that :math:`\mathbf{u} \wedge \mathbf{v} = -\mathbf{v} \wedge \mathbf{u}` to show that  :math:`\mathbf{v} \wedge \mathbf{v} = 0` for any vector :math:`\mathbf{v}`
 
 One more thing - how do we decide what is "negative" area and what is "positive?" The rule that we follow is called the "right-hand" rule. What you can do is the fingers on your right hand in the direction of the first vector (:math:`\mathbf{u}`), and then curl them in the direction of the second vector (:math:`\mathbf{v}`). If your thumb points up, then the area is positive. If it points down, the area is negative.
 
 .. figure:: img/vectors/1920px-Right-hand_grip_rule.png
-   :width: 300
-   :figwidth: 300
+   :width: 200
+   :figwidth: 200
    :align: right
    :alt: Figure illustrating the right-hand rule
+
+   A right hand illustrating the direcitonality of "positive" area for the wedge product (`from the wikipedia article <https://en.wikipedia.org/wiki/Right-hand_rule#/media/File:Right-hand_grip_rule.svg>`_)
 
 So what sort of object is :math:`\mathbf{u} \wedge \mathbf{v}`? Because it represents a sort of "oriented area" created out of two vectors, it's typically called a *bivector*. Similarly, the result of :math:`\mathbf{u} \wedge \mathbf{v} \wedge \mathbf{w}` is a 3D volume, which we call a *trivector*. Don't worry too much if the flood of definitions is a little bit too much - the most important idea here is to understand that the wedge product allows us to multiply vectors in the same way that we'd multiply lengths in terms of units.
 
@@ -227,7 +233,9 @@ Now we'll use our rule above to flip the "sign" for the second wedge. We'll also
     
     (\widehat{i} \wedge 5\widehat{j})  - (3\widehat{i} \wedge 2\widehat{j}) = ((1 \cdot 5) - (3 \cdot 2))\widehat{i} \wedge \widehat{j}
 
-We can generalize this some (and you should try!) For two vectors :math:`\mathbf{u} = \begin{bmatrix}a\\b\end{bmatrix}` and :math:`\mathbf{v} = \begin{bmatrix}c\\d\end{bmatrix}`, can you work out what :math:`\mathbf{u} \wedge \mathbf{v}` is?
+.. admonition:: Excercise
+     
+    We can generalize this some (and you should try!) For two vectors :math:`\mathbf{u} = \begin{bmatrix}a\\b\end{bmatrix}` and :math:`\mathbf{v} = \begin{bmatrix}c\\d\end{bmatrix}`, can you work out what :math:`\mathbf{u} \wedge \mathbf{v}` is?
 
 The cross product
 -----------------
@@ -241,10 +249,12 @@ There's a lot of physical situations though that are well modeled by the wedge p
 Basically phyicists like to pretend like the "area" of the bivector is actually its own vector that points directly out from the surface. Here's a diagram that does a pretty good job visualizing what I mean: 
 
 .. figure:: img/vectors/Cross_product_parallelogram.png
-   :width: 300
-   :figwidth: 300
+   :width: 200
+   :figwidth: 200
    :align: right
-   :alt: Figure illustrating the right-hand rule
+   :alt: Figure illustrating the cross product in 3D 
+
+   The cross product in 3D - the length of the vector is the same as the area of the wedge product between :math:`\mathbf{a} \wedge \mathbf{b}`, while the vector points perepndicular to the plane of the wedged area (`from the Wikipeida cross-product article <https://en.wikipedia.org/wiki/Cross_product#/media/File:Cross_product_parallelogram.svg>`_)
 
 Since we're putting two vectors into the product, and getting a vector back out, this looks an awful lot like a way to multiply vectors. Physicists call this process the "cross product", and typically write it like :math:`\mathbf{u} \times \mathbf{v}`.
 
@@ -257,7 +267,7 @@ The vector that we get has a length that is the same as the *area* spanned by th
 and 
 
 .. math::
-    \mathbf{b} \times \mathbf{v} = 0
+    \mathbf{v} \times \mathbf{v} = 0
 
 Here's one other useful result - if we have :math:`\mathbf{u} \times \mathbf{v} = \mathbf{w}` then 
 
@@ -308,7 +318,7 @@ Where (as we defined earlier) :math:`\left\lVert\mathbf{v}\right\rVert` is the l
 
 Let's talk through some consequences of this 
 
-#. Since :math:`cos(0^{\circ}) = 1`, if two vectors :math:`mathbf{u}` and :math:`mathbf{v}` are paralell with each other, then :math:`\mathbf{u} \cdot \mathbf{v} = \left\lVert\mathbf{u}\right\rVert \left\lVert\mathbf{v}\right\rVert`, meaning we just take the product of their lengths. In particular, if we take the dot product of any vector :math:`mathbf{v}` with itself, we will get :math:`\mathbf{v} \cdot \mathbf{v} = \left\lVert\mathbf{v}\right\rVert^2`. So another way of writing the length of a vector is :math:`\sqrt{\mathbf{v} \cdot \mathbf{v}}`
+#. Since :math:`cos(0^{\circ}) = 1`, if two vectors :math:`\mathbf{u}` and :math:`\mathbf{v}` are paralell with each other, then :math:`\mathbf{u} \cdot \mathbf{v} = \left\lVert\mathbf{u}\right\rVert \left\lVert\mathbf{v}\right\rVert`, meaning we just take the product of their lengths. In particular, if we take the dot product of any vector :math:`\mathbf{v}` with itself, we will get :math:`\mathbf{v} \cdot \mathbf{v} = \left\lVert\mathbf{v}\right\rVert^2`. So another way of writing the length of a vector is :math:`\sqrt{\mathbf{v} \cdot \mathbf{v}}`
 #. Since  :math:`cos(90^{\circ}) = 0`, the dot product of any two perpendicular vectors is always zero
 #. Since  :math:`cos(180^{\circ}) = -1`, the dot product of antiparallel vectors is the negative of the dot product of parallel vectors
 #. More generally, we can think of the dot product as multiplying the parts of two vectors that are "in common" along the same axis. 
@@ -380,7 +390,7 @@ This notation is a little ugly right now, but there's a really beautiful way to 
     \end{bmatrix} \times \begin{bmatrix}1\\2\\3\end{bmatrix} = 
     \begin{bmatrix}\color{red} 1\\ \color{green} 2\\\color{blue} 3\end{bmatrix}
 
-We call a stack of rows like this a *matrix* - and it's an incredibly important (and unavoidable) part of math when it comes to dealing with vectors. We picked (on purpose) a matrix that doesn't change the vector at all here, but it's easy to see that we can do some powerful things with matricies. For example, this matrix will swap the x and y coordinates
+We call a stack of rows like this a *matrix* (pluralized as *matricies*) - and it's an incredibly important (and unavoidable) part of math when it comes to dealing with vectors. We picked (on purpose) a matrix that doesn't change the vector at all here, but it's easy to see that we can do some powerful things with matricies. For example, this matrix will swap the x and y coordinates
 
 .. math::
 
@@ -412,28 +422,41 @@ Here's another example - this matrix rotates the vector 45 degrees around the Z-
      
     \begin{bmatrix}-\frac{\sqrt{2}}{2}\\  -\frac{3\sqrt{2}}{2}\\ 3\end{bmatrix}
 
-We've done a lot of math so far - so in the last section we'll try to get a little bit of an intutitve sense for how a matrix in 3D works
+We've done a lot of math so far - so in the last section we'll try to get a little bit of an intutitve sense for how a matrix in 2D works
 
-Fun with matricies
-==================
+Some intution for the matrix product
+====================================
+
+I think rather than trying to explain out how a matrix works on vectors in the abstract, the more useful thing to do would be to give you some examples to play with. In addition to showing the effect of three vectors, I also put a picture of actor Nicholas Cage (in a typically `unflattering image from Wikipedia <https://en.wikipedia.org/wiki/Nicolas_Cage#/media/File:Nicolas_Cage_Comic-Con_2011.jpg>`_ that was taken at Comic-Con in 2011 ) to help get a better idea of how the "space" is transformed.
+
+Below you can try inputting numbers into the rows and columns of the matrix, and the image and vectors will transform the same way: 
 
 .. raw:: html
 
     <style>
-    .container {
-    display: grid;
-    grid-template-columns: 40px 40px;
-    padding: 10px;
+    table {
+    max-width: 120px,
+    border: 0px,
     }
-    </style>
-    <div class="container">
-    <div><input id="input-00"></input></div>
-    <div><input id="input-01"></input></div>
-    <div><input id="input-10"></input></div>
-    <div><input id="input-11"></input></div>
-    </div>
+    td {
+    border: 0px,
+    }
+    .matrix-element {
+    max-width: 50px
+    }
+    </style>   
+    <table>
+    <tr>
+        <td><input id="input-00" class="matrix-element"></input></td>
+        <td><input id="input-01" class="matrix-element"></input></td>
+    </tr>
+    <tr>
+        <td><input id="input-10" class="matrix-element"></input></td>
+        <td><input id="input-11" class="matrix-element"></input></td>
+    </tr>
+    </table>
 
-    <canvas id="figure-2h-matrix-transforms" width="300" height="200">Visualization showing that vector addition is commutitive</canvas>
+    <canvas id="figure-2h-matrix-transforms" width="300" height="400">Visualization showing that vector addition is commutitive</canvas>
     <div style="display:none;">
     <img
      id="source"
@@ -443,6 +466,63 @@ Fun with matricies
     </div>
     <script src="interactive/fig2h_matrix_transforms.js" type="module" defer></script>
 
+Here's a few matricies to try - first, we're starting with a matrix that "does nothing" to the vectors, which for a 2D vector is 
+
+.. math:: 
+
+    \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+
+Similar to 1 in multiplication (and zero in addition) we refer to this matrix as the identity matrix 
+
+
+.. raw:: html 
+
+     <canvas id="figure-2h-identity" width="200" height="200">Matrix identity</canvas>
+
+We can easily change this to "stretch" the x or y axes. For example, the matrix below will stretch everything to be twice as big in the x-direction, but leave the y-direction unchanged.
+
+.. math:: 
+
+    \begin{bmatrix} 2 & 0 \\ 0 & 1 \end{bmatrix}
+
+.. raw:: html 
+
+     <canvas id="figure-2h-scaling" width="200" height="200">Matrix stretching</canvas>
+
+
+We can also "flip" the image over - for example, if we were to use -1 in the y-direction, we could flip (or in more technical terms "reflect") the image around 
+
+.. math::
+    \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}
+
+.. raw:: html 
+
+     <canvas id="figure-2h-flip" width="200" height="200">Matrix reflection</canvas>
+
+So far none of these examples have used the other two numbers that are "off-diagonal." That's simpler to think about, becasue we're ultimately not "mixing" the x and y-components of the vector at all. What could we do if we did mix them? Well one option is to "skew" the vectors
+
+.. math::
+    \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}
+
+.. raw:: html 
+
+     <canvas id="figure-2h-skew" width="200" height="200">Matrix skew</canvas>
+
+A more useful thing that we can do though is to rotate the whole coordinate system together - here's an example matrix that does that by 60 degrees 
+
+.. math::
+    \begin{bmatrix} \frac{1}{2} & -\frac{\sqrt{3}}{2} \\  \frac{\sqrt{3}}{2} & \frac{1}{2} \end{bmatrix} \approx \begin{bmatrix} 0.5 & -0.86 \\  0.86 & 0.5 \end{bmatrix}
+
+.. raw:: html 
+
+     <canvas id="figure-2h-rotation" width="200" height="200">Matrix rotation</canvas>
+
+Rotations are interesting enough that it's worth covering them in a little more detail. In general, if we want to rotate a vector by :math:`\theta` degrees in 2D, then we can multiply it by the vector 
+
+.. math::
+    \begin{bmatrix} cos(\theta) & -sin(\theta) \\ sin(\theta) & cos(\theta) \end{bmatrix}
+
+One thing that you'll probably notice here is that we can't make a matrix to transform the image any way that we want. For example, it's not possible to use a 2D matrix to "swirl" the image, or to blur it, or to create a wavy pattern. These limitations are actually pretty useful in a way - as we'll explore a little later, everything that you can do to a vector using a matrix corresponds to something called a *linear transformation*. In brief, a linear transformation is means that we move everything around so that the rules of vector addition (and scaling) work out the same. An easy example is a rotation - it's not so hard to see that the vectors that we've drawn on the image still add up the same way no matter how we rotate it. One sort of cheeky way to think about this is that you can spin around the computer screen (or tablet, or phone) however you want, and none of the geometric relationships that we've claimed vectors to have will change. We've done a lot already though, so this is a topic for another day. 
 
 .. [#] Of course, there's no reason why "east" has to be positive and "west" has to be negative here. We could easily invert the two and end up with the same conclusion. 
 
