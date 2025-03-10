@@ -12,28 +12,27 @@ How to think about math
 Oh no - math
 ============
 
-I think most of us have a rocky relationship with math at best (myself included). For most people I think this probably started with our experiences in elementary and middle school - where math is a mix of memorization (i.e. knowing that 6 times 7 is 42), and manually doing things with pen and paper that a computer can do better (long dividing 6336 by 72). None of this is exactly riveting (especially when you're 10), and worse, there's nothing you can really build off of. Knowing that :math:`6336/72 = 88` doesn't help you solve any other problems (unless your next problem is :math:`72 * 88`).
+I never really liked math class growing up - and I think chances are pretty good that you didn't either [#]_. I think the problem for me was that we spent about 90% of our time in math class doing one of three things
 
-The situation doesn't really improve much in middle school and high school. There, we move from algorithms that manipulate numbers directly to rules for moving symbols around in equations. So we get to solve such riveting problems as showing that you can re-write :math:`(x + 1)^3 = 3x^2 + 3x - 18 ` as :math:`x^3 - 19 = 0`. If you're feeling really crazy, maybe you get to solve this to show that x is the cube root of 19. But this again isn't exactly exciting - and in fact it's still work that computers are quite a bit better at than we are. At the end of high school you might take calculus, which - again - involves slightly more advanced symbolic manipulation. You might have to notice that a problem like 
+- Memorization (things like :math:`5 * 6 = 30`, or :math:`\int csc(x) \,dx = \ln\left| csc(x) + cot(x)\right| + C`)
+- Painstaking calculations (something like long-dividing 562 by 13)
+- Mysterious word problems (i.e. Sviatoslav has 68 cents and apples cost 5 cents each. How many apples can he buy?)
 
-.. math::
+These sorts of problems span the gamut from boring, to confusing, to actively painful. Meanwhile, adults would always be emphasizing that math was about *patterns*. But at least for me, these *patterns* were always held out as something constantly just out of reach. And as I got further along in math education, even up through most of college, we were still stuck mostly doing more things in the same vein, but with more symbols and greek letters added into the mix.
 
-    \integral \frac{x}{cos(x^2)} dx 
+For better or for worse, when we study physics we suddenly, deperately need a way to reason about patterns in data. Math is an important part of the toolkit, because it lets us recognize relationships and explain them in a clear-cut way. So I think it's worth having some posts about math, which hopefully makes it a little less scary. What I want to do here is
 
-Can be re-written 
-
-.. math::
-
-
+#. Start to explore how we can use math to model relationships, and to think about problems more abstractly
+#. Explain how mathematical results build on each other - and some sense of how we might go about proving that things are true in a mathematical sense
 
 An example
 ==========
 
-A nice place to start undertanding the power of abstraction is to start with one of the simplest non-trivial [#]_ examples of a pattern in numbers that I can think of. Let's start with two definitions that you're probably familiar with. An *odd number* is a number that can't be evenly divided by two (i.e. 1, 3, 5, 7), and a *perfect square* is a number that can be re-written as a whole number times itself (i.e. 4 = 2*2, 9 = 3*3, 16 = 4*4, etc.). Here's an intersting pattern 
+A nice place to start undertanding the power of math is to start with one of the simplest non-trivial [#]_ examples of a pattern in numbers that I can think of. Let's start with two definitions that you're probably familiar with. An *odd number* is a number that can't be evenly divided by two (i.e. 1, 3, 5, 7), and a *perfect square* is a number that can be re-written as a whole number times itself (i.e. 4 = 2*2, 9 = 3*3, 16 = 4*4, etc.). Here's an intersting pattern 
 
-    - 1 + 3 = 4 
-    - 1 + 3 + 5 = 9
-    - 1 + 3 + 5 + 7 = 16
+- 1 + 3 = 4 
+- 1 + 3 + 5 = 9
+- 1 + 3 + 5 + 7 = 16
 
 Based on the first few numbers, it looks an awful lot like if we sum up odd numbers together, we end up getting perfect squares. The first step is to try to take this pattern, and to try to get it phrased a little more exactly. Notice that the first relationship is the first two odd numbers, and we get the square of two. The second relationship is the sum of the first three odd numbers, and we get the square of three. So generalizing this, we could guess that 
 
@@ -41,11 +40,15 @@ Based on the first few numbers, it looks an awful lot like if we sum up odd numb
 
 Of course, in math, we generally like to write things in shorthand using equations, rather than writing out our statements in English. Let's express this same statement as an equation - the shorthand for summing up is a captial sigma (:math:`\Sigma`). 
 
-Of course, like scientists, mathemticians want to sound smart. So instead of "guess," they like to say "conjecture." Let's see if we can turn this "conjecture" into an actual fact. It might seem like we could just continue to list numbers here, and that would work "up to" a certain number. But this isn't very satifsying - there's a lot of mathematical statments you could make that seem to be true for a lot of numbers, but suddenly fall apart at some point. After all, if we claimed 
+Of course, like scientists, mathemticians want to sound smart. So instead of "guess," they like to say "conjecture." Let's see if we can turn this "conjecture" into an actual fact.
+
+I think a lot of people's first instinct is to continue listing out numbers. This sort of works, but it doesn't really help us much. We could list the first 100 examples of this pattern, and it would only prove that the pattern works for the first 100 square numbers. It would also get old pretty quickly! 
+
+We have to be careful, because there's plenty of examples of conjectures that work pretty well for a very long list of numbers, and then suddenly fall apart. As a (sort of dumb example), we could try making the following statement
 
     `All numbers are less than one million`
 
-This is obviously not a true statement, but we'd be stuck counting for a long time before we found a number that could disprove our claim. 
+Which is obviously not true, but it would be take a long time to find a counter example if we started at zero. What we really need is a way to *abstract* the pattern that we've seen, and prove that it has to be true no matter what number we're talking about.
 
 Our first proof
 ===============
@@ -186,10 +189,20 @@ Because of this, there's a lot of power in our ability to use math to reason abo
 
 And through (increasingly) tedious work solve out the answers. Although it's definitely not as much fun, having these sorts of tools in our toolbox is incredibly useful for the sorts of places where our human intuition breaks down. We can't really hope to grapple with spaces with more than three dimensions, infinitely small (or large) quantities, or sums with infinite numbers of terms. But we'll see all of these things come up repeatedly in physics, so it's important to always have a firmer ground that we can fall back on when our intuition doesn't work. 
 
-How we'll deal with math in these posts
-=======================================
+Math in these posts
+===================
+
+In physics at least, we use math to make our lives easier. In these posts, I want to treat math more as a toolkit - as a way of modeling relationships, or building intuition, than an end to itself. I think most importantly, I want to avoid tedious calculations as much as possible - it's sometimes important to be able to work through pages and pages of algebra to solve a problem, but I think increasingly this isn't a skillset that's really useful most of the time. So my goal whenever I introduce a mathematical concept is 
+
+#. To explain why we need it 
+#. To explain exactly what sort of behavrior we're modeling with it 
+#. To give some examples of how we actually can use it in a calculation
 
 
+.. [#] For an excellent and much more articulate take on all of this, I'd really strongly reccomend Paul Lockhart's "A Mathematician's Lament"
+
+.. [#] I'll always have a special bitterness for the junior-year college course I took in linear algebra that would have us do things like calculate the determinant of a 5x5 matrix by hand on midterms. I'm honestly *still* not sure what the point of that was.
 
 .. [#] Mathematicians use "trivial" as a sort of pejorative term for things that *they* think are obvious 
-.. [#] The actual truth of this story is apparently a little shakier than I thought - see `this article <https://www.americanscientist.org/article/gausss-day-of-reckoning#:~:text=The%20teacher's%20aim%20was%20to,candidates%20for%20greatest%20mathematician%20ever.>` for a nice overview on the actual historicity of the story. 
+
+.. [#] The actual truth of this story is apparently a little shakier than I thought - see `this article <https://www.americanscientist.org/article/gausss-day-of-reckoning#:~:text=The%20teacher's%20aim%20was%20to,candidates%20for%20greatest%20mathematician%20ever.>`_ for a nice overview on the actual historicity of the story. 
