@@ -26,16 +26,14 @@ class Figure2H {
         const image = document.getElementById('source');
         this.ctx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
 
-        const newX = new Vector2(mat00, mat01).dot(new Vector2(this.WIDTH / 2, this.HEIGHT /2))
-        const newY = new Vector2(mat10, mat11).dot(new Vector2(this.WIDTH / 2, this.HEIGHT /2))
+        this.ctx.transform(mat00, mat01, mat10, mat11, this.WIDTH/2, this.HEIGHT/2);
         
-        this.ctx.transform(mat00, mat01, mat10, mat11, 0, 0);
-        this.ctx.drawImage(image, 0, 0, 717, 717,0, 0, IMG_SIZE, IMG_SIZE);
-        this.ctx.strokeStyle = '#AA44AA'
-        this.ctx.fillStyle = '#AA44AA'
-        drawVec(this.ctx, new Vector2(-IMG_SIZE/2, 0), new Vector2(-IMG_SIZE/2, -100));
-        drawVec(this.ctx, new Vector2(-IMG_SIZE/2, -100), new Vector2(-IMG_SIZE/2+100, -100));
-        drawVec(this.ctx, new Vector2(-IMG_SIZE/2, 0), new Vector2(-IMG_SIZE/2+100, -100));
+        this.ctx.drawImage(image, 0, 0, 717, 717,-IMG_SIZE/2, -IMG_SIZE/2, IMG_SIZE, IMG_SIZE);
+        this.ctx.strokeStyle = '#AA44AA';
+        this.ctx.fillStyle = '#AA44AA';
+        drawVec(this.ctx, new Vector2(-IMG_SIZE/2, IMG_SIZE), new Vector2(-IMG_SIZE/2, IMG_SIZE-100));
+        drawVec(this.ctx, new Vector2(-IMG_SIZE/2, IMG_SIZE-100), new Vector2(100 - IMG_SIZE/2, IMG_SIZE-100));
+        drawVec(this.ctx, new Vector2(-IMG_SIZE/2, IMG_SIZE), new Vector2(100 - IMG_SIZE/2, IMG_SIZE-100));
     }
 
 }

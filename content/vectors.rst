@@ -477,7 +477,7 @@ Similar to 1 in multiplication (and zero in addition) we refer to this matrix as
 
 .. raw:: html 
 
-     <canvas id="figure-2h-identity" width="200" height="200">Matrix identity</canvas>
+     <canvas id="figure-2h-identity" width="300" height="400">Matrix identity</canvas>
 
 We can easily change this to "stretch" the x or y axes. For example, the matrix below will stretch everything to be twice as big in the x-direction, but leave the y-direction unchanged.
 
@@ -487,7 +487,7 @@ We can easily change this to "stretch" the x or y axes. For example, the matrix 
 
 .. raw:: html 
 
-     <canvas id="figure-2h-scaling" width="200" height="200">Matrix stretching</canvas>
+     <canvas id="figure-2h-scaling" width="300" height="400">Matrix stretching</canvas>
 
 
 We can also "flip" the image over - for example, if we were to use -1 in the y-direction, we could flip (or in more technical terms "reflect") the image around 
@@ -497,7 +497,7 @@ We can also "flip" the image over - for example, if we were to use -1 in the y-d
 
 .. raw:: html 
 
-     <canvas id="figure-2h-flip" width="200" height="200">Matrix reflection</canvas>
+     <canvas id="figure-2h-flip" width="300" height="400">Matrix reflection</canvas>
 
 So far none of these examples have used the other two numbers that are "off-diagonal." That's simpler to think about, becasue we're ultimately not "mixing" the x and y-components of the vector at all. What could we do if we did mix them? Well one option is to "skew" the vectors
 
@@ -506,7 +506,7 @@ So far none of these examples have used the other two numbers that are "off-diag
 
 .. raw:: html 
 
-     <canvas id="figure-2h-skew" width="200" height="200">Matrix skew</canvas>
+     <canvas id="figure-2h-skew" width="300" height="400">Matrix skew</canvas>
 
 A more useful thing that we can do though is to rotate the whole coordinate system together - here's an example matrix that does that by 60 degrees 
 
@@ -515,7 +515,7 @@ A more useful thing that we can do though is to rotate the whole coordinate syst
 
 .. raw:: html 
 
-     <canvas id="figure-2h-rotation" width="200" height="200">Matrix rotation</canvas>
+     <canvas id="figure-2h-rotation" width="300" height="400">Matrix rotation</canvas>
 
 Rotations are interesting enough that it's worth covering them in a little more detail. In general, if we want to rotate a vector by :math:`\theta` degrees in 2D, then we can multiply it by the vector 
 
