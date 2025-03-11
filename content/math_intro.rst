@@ -20,7 +20,7 @@ I never really liked math class growing up - and I think chances are pretty good
 
 These sorts of problems span the gamut from boring, to confusing, to actively painful. Meanwhile, adults would always be emphasizing that math was about *patterns*. But at least for me, these *patterns* were always held out as something constantly just out of reach. And as I got further along in math education, even up through most of college, we were still stuck mostly doing more things in the same vein, but with more symbols and greek letters added into the mix.
 
-For better or for worse, when we study physics we suddenly, deperately need a way to reason about patterns in data. Math is an important part of the toolkit, because it lets us recognize relationships and explain them in a clear-cut way. So I think it's worth having some posts about math, which hopefully makes it a little less scary. What I want to do here is
+For better or for worse, when we study physics we suddenly, desperately need a way to reason about patterns in data. Math is an important part of the toolkit, because it lets us recognize relationships and explain them in a clear-cut way. So I think it's worth having some posts about math, which hopefully makes it a little less scary. What I want to do here is
 
 #. Start to explore how we can use math to model relationships, and to think about problems more abstractly
 #. Explain how mathematical results build on each other - and some sense of how we might go about proving that things are true in a mathematical sense
@@ -28,7 +28,7 @@ For better or for worse, when we study physics we suddenly, deperately need a wa
 An example
 ==========
 
-A nice place to start undertanding the power of math is to start with one of the simplest non-trivial [#]_ examples of a pattern in numbers that I can think of. Let's start with two definitions that you're probably familiar with. An *odd number* is a number that can't be evenly divided by two (i.e. 1, 3, 5, 7), and a *perfect square* is a number that can be re-written as a whole number times itself (i.e. 4 = 2*2, 9 = 3*3, 16 = 4*4, etc.). Here's an intersting pattern 
+A nice place to start understanding the power of math is to start with one of the simplest non-trivial [#]_ examples of a pattern in numbers that I can think of. Let's start with two definitions that you're probably familiar with. An *odd number* is a number that can't be evenly divided by two (i.e. 1, 3, 5, 7), and a *perfect square* is a number that can be re-written as a whole number times itself (i.e. 4 = 2*2, 9 = 3*3, 16 = 4*4, etc.). Here's an interesting pattern 
 
 - 1 + 3 = 4 
 - 1 + 3 + 5 = 9
@@ -40,7 +40,7 @@ Based on the first few numbers, it looks an awful lot like if we sum up odd numb
 
 Of course, in math, we generally like to write things in shorthand using equations, rather than writing out our statements in English. Let's express this same statement as an equation - the shorthand for summing up is a captial sigma (:math:`\Sigma`). 
 
-Of course, like scientists, mathemticians want to sound smart. So instead of "guess," they like to say "conjecture." Let's see if we can turn this "conjecture" into an actual fact.
+Of course, like scientists, mathematicians want to sound smart. So instead of "guess," they like to say "conjecture." Let's see if we can turn this "conjecture" into an actual fact.
 
 I think a lot of people's first instinct is to continue listing out numbers. This sort of works, but it doesn't really help us much. We could list the first 100 examples of this pattern, and it would only prove that the pattern works for the first 100 square numbers. It would also get old pretty quickly! 
 
@@ -53,18 +53,20 @@ Which is obviously not true, but it would be take a long time to find a counter 
 Our first proof
 ===============
 
-Let's sketch a proof out - we'll use a technique that mathemiticians call *induction*. To do this, we have to prove two things 
+Let's sketch a proof out - we'll use a technique that mathematicians call *induction*. To do this, we have to prove two things 
 
-    1. The statment is true for some number 
+    1. The statement is true for some number 
     2. If the statement is true for a number, it's also true for the next number.
 
-The first statment is often called the "base case," while the second statment is called the "inductive case." Usually the base case is easy - in our case, we'll start with the first odd number, one. The sum of all odd numbers up to one is ... one. And the square of one is 1 * 1 which is equal to - also one! So our proof of the base case boils down to 
+The first statement is often called the "base case," while the second statement is called the "inductive case." Usually the base case is easy - in our case, we'll start with the first odd number, one. The sum of all odd numbers up to one is ... one. And the square of one is 1 * 1 which is equal to - also one! So our proof of the base case boils down to 
 
-:math:` 1 = 1 * 1 = 1`
+.. math::
+    1 = 1 * 1 = 1   
 
-Not a very intereting statment. But it's critical to make sure it's true - people often compare induction to a staircase, where we have to have a place to stand before we can move up to the next stair. Our second step requires us to show that if we've got a square number that is the sum of all existing odd numbers, we can get another square number by adding another odd number. We'll do this with a little algebra. If we have a perfet square N ^ 2, the next perfect square will be (N + 1)^2. Breaking this next number down we get  
+Not a very interesting statement. But it's critical to make sure it's true - people often compare induction to a staircase, where we have to have a place to stand before we can move up to the next stair. Our second step requires us to show that if we've got a square number that is the sum of all existing odd numbers, we can get another square number by adding another odd number. We'll do this with a little algebra. If we have a perfect square N ^ 2, the next perfect square will be (N + 1)^2. Breaking this next number down we get  
 
-:math:`(n + 1)^2 = (n + 1) * (n + 1) = (n^2 + n + n + 1) = (n^2 + 2n + 1) = (n ^ 2) + (2n + 1)`
+.. math:: 
+    (n + 1)^2 = (n + 1) * (n + 1) = (n^2 + n + n + 1) = (n^2 + 2n + 1) = (n ^ 2) + (2n + 1)
 
 So the next square number is always going to be 2n + 1 larger than the existing perfect square, which is exactly the next odd number in our series. Using induction, we have shown that as we continue to add odd numbers together, we will continue to produce perfect squares.
 
@@ -108,7 +110,7 @@ Is this proof better? I think unambiguously yes. We can visually see a pattern h
 How to go further
 =================
 
-So we've shown that the sum of the first N odd numbers is the square of N. That's not a generally useful fact - although (spoiler alert) we will see this come up later when we discuss the total number of quantum-mechanical orbitals in a hydrogen atom. Let's see if we can take this fact a little further, and figure out what the sum of *every number* up to a certain number is. Basicaly we're trying to generalize the sum
+So we've shown that the sum of the first N odd numbers is the square of N. That's not a generally useful fact - although (spoiler alert) we will see this come up later when we discuss the total number of quantum-mechanical orbitals in a hydrogen atom. Let's see if we can take this fact a little further, and figure out what the sum of *every number* up to a certain number is. Basically we're trying to generalize the sum
 
 - 1 = 1
 - 1 + 2 = 3
@@ -128,7 +130,6 @@ And the first few even numbers are
 So the even numbers are just one larger than the odd numbers. Meaning that if we add the first N even numbers, it's the same as the first N odd numbers, but with one added to each number. But if we add 1 to the sum N times, that's the same thing as adding :math:`N * 1` which is just N. So the sum of the first N even numbers is then just 
 
 .. math:: 
-
     N^2 + N
 
 Now let's put the pieces together. This part is a little ugly - our logic requires us to sum up a specific count of odd and even numbers. But this count will depend on whether our number is odd or even - for example, summing up all the numbers to 5 would involve summing (1, 3, 5), and (2, 4), so we have one more odd number than even. But summing all the numbers up to 6 would be (1, 3, 5) and (2, 4, 6) - so we have two different cases that we need to treat slightly differently.
@@ -136,19 +137,16 @@ Now let's put the pieces together. This part is a little ugly - our logic requir
 In a proof it's totally valid to split up our logic and handle each of these cases separately - so long as there's not an infinite number of cases to handle of course! Let's start with the case where N is even. That means that we have to add up :math:`N/2` odd numbers and :math:`N/2` even numbers 
 
 .. math:: 
-
     [(\frac{N}{2})^2 + \frac{N}{2}] +  [(\frac{N}{2})^2] = \frac{N^2}{4} +  \frac{N}{2} + \frac{N^2}{4} = \frac{N^2 + N}{2} = \frac{N(N+1)}{2}
 
 What about the case where N is odd? Then we have :math:`\frac{N - 1}{2}` even numbers, and :math:`\frac{N + 1}{2}`  odd numbers to sum up. So we can do the math the same way 
 
 .. math:: 
-
-    [(\frac{N - 1}{2})^2 + \frac{N - 1}{2}] +  [(\frac{N + 1}{2})^2] = \frac{N^2 - 2N + 1}{4} + \frac{N - 1}{2} + {N^2 + 2N + 1}{4} = \frac{N(N+1)}{2}
+    [(\frac{N - 1}{2})^2 + \frac{N - 1}{2}] +  [(\frac{N + 1}{2})^2] = \frac{N^2 - 2N + 1}{4} + \frac{N - 1}{2} + \frac{N^2 + 2N + 1}{4} = \frac{N(N+1)}{2}
 
 Nice! We get the same result for odd numbers as even numbers - so we can now use the result that 
 
 .. math::
-
     \sum_{i=1}^{N}{i} = \frac{N(N+1)}{2}
 
 Is there a nicer way to get this result?
@@ -158,7 +156,7 @@ A child's proof
 
 Here's a story that is often told to be true [#]_, but has a distinct "and then everyone clapped" sort of ring to it. In the 1780's, there was a German schoolteacher now known only by the very German last name of Büttner who was famously mean. When he wanted to punish his students, he would make them use a small piece of chalkboard to add up all of the numbers from one to one-hundred - a tedious task for the poor primary school students who don't know the trick that we've just discovered. 
 
-Of course, like any mean teacher, this man was about to meet his match. In his case, the match is an actual historical figure, the (then) seven-year-old mathemtician Karl Friedrich Gauss. Instead of struggling for hours with the problem, Gauss is reported to have came up with the correct number within seconds. The teacher, assuming that he must have cheated, asked Gauss to explain his solution. Gauss said that he noticed this pattern: instead of adding the numbers, he noticed that they formed pairs that all added to the same number 
+Of course, like any mean teacher, this man was about to meet his match. In his case, the match is an actual historical figure, the (then) seven-year-old mathematician Karl Friedrich Gauss. Instead of struggling for hours with the problem, Gauss is reported to have came up with the correct number within seconds. The teacher, assuming that he must have cheated, asked Gauss to explain his solution. Gauss said that he noticed this pattern: instead of adding the numbers, he noticed that they formed pairs that all added to the same number 
 
     - 1 + 100 = 101
     - 2 + 99 = 101
@@ -170,36 +168,40 @@ And so on and so forth until we reach the mid-point
 
 So all we really have to do in the end is multiply 101 (the sum of the first and last numbers) by 50 (the number of pairs of additions), and we get our answer. If we follow this pattern to its logical conclusion the sum of all numbers between one and N can be re-written as 
 
-:math:`\frac{N}{2}{N + 1}`
+.. math::
 
-Which you'll recognize as the same equation from above. Again, we've found yet another way to get to the same result - but isn't this a lot more *satifsying*? After all, instead of wading through the logic with multiple different cases, we have a simple, intuitive explanation that makes the result seem inevitable. 
+    \frac{N(N + 1)}{2}
+
+Which you'll recognize as the same equation from above. Again, we've found yet another way to get to the same result - but isn't this a lot more *satisfying*? After all, instead of wading through the logic with multiple different cases, we have a simple, intuitive explanation that makes the result seem inevitable. 
 
 Why don't we always prove things intuitively? 
 ==============================================
 
-Based on these examples, you'd probably prefer the "intuitive" argument in both cases - and I would too! These sorts of arguments feel like neat sorts of puzzles - and for pure mathemiticians, this sort of puzzle-solving is hugely motivating. It's amazing that we can come up with arguments that are equally rigorous, while providing us with some additional insight into the problem itself.
+Based on these examples, you'd probably prefer the "intuitive" argument in both cases - and I would too! These sorts of arguments feel like neat sorts of puzzles - and for pure mathematicians, this sort of puzzle-solving is hugely motivating. It's amazing that we can come up with arguments that are equally rigorous, while providing us with some additional insight into the problem itself.
 
 Of course, these sorts of intuitive proofs also have their limitations. Say we wanted to figure out what sorts of numbers generate perfect cubes (i.e. numbers that can be written as N * N * N). Of course, it's pretty straightforward to extend this argument to a cube - instead of filling out the sides and the corners, we would instead be filling out the sides of the cube, the edges of the cube, and the remaining corner piece. 
 
-The problem would come if we wanted to extend a similar argument to numbers that are "perfect fourth powers" (i.e. N * N * N * N) In general, we don't see these sorts of numbers come up as often, which is partially shown in that there's no catchy name for them. Here we start to run into a problem for this "geometric/intutive" approach to a proof - we can pretty easily visualize squares and cubes, but I think most of us have a much harder time grappling with 4-dimensional shapes. The problem just gets worse as we climb to higher and higher dimensions - although in some ways, it's not really any harder to visualize 73 dimension than it is 5 dimensions. In both cases, it's so far removed from our experience that we just don't really have the tools to grapple with it. 
+The problem would come if we wanted to extend a similar argument to numbers that are "perfect fourth powers" (i.e. N * N * N * N) In general, we don't see these sorts of numbers come up as often, which is partially shown in that there's no catchy name for them. Here we start to run into a problem for this "geometric/intuitive" approach to a proof - we can pretty easily visualize squares and cubes, but I think most of us have a much harder time grappling with 4-dimensional shapes. The problem just gets worse as we climb to higher and higher dimensions - although in some ways, it's not really any harder to visualize 73 dimension than it is 5 dimensions. In both cases, it's so far removed from our experience that we just don't really have the tools to grapple with it. 
 
-Because of this, there's a lot of power in our ability to use math to reason about things totally abstractly. We can always write down the algrebraic expression for the difference between adjacent numbers 
+Because of this, there's a lot of power in our ability to use math to reason about things totally abstractly. We can always write down the algebraic expression for the difference between adjacent numbers 
 
-:math:`(n + 1)^4 - (n)^4`
+.. math::
+    
+    (n + 1)^4 - (n)^4
 
 And through (increasingly) tedious work solve out the answers. Although it's definitely not as much fun, having these sorts of tools in our toolbox is incredibly useful for the sorts of places where our human intuition breaks down. We can't really hope to grapple with spaces with more than three dimensions, infinitely small (or large) quantities, or sums with infinite numbers of terms. But we'll see all of these things come up repeatedly in physics, so it's important to always have a firmer ground that we can fall back on when our intuition doesn't work. 
 
 Math in these posts
 ===================
 
-In physics at least, we use math to make our lives easier. In these posts, I want to treat math more as a toolkit - as a way of modeling relationships, or building intuition, than an end to itself. I think most importantly, I want to avoid tedious calculations as much as possible - it's sometimes important to be able to work through pages and pages of algebra to solve a problem, but I think increasingly this isn't a skillset that's really useful most of the time. So my goal whenever I introduce a mathematical concept is 
+In physics at least, we use math to make our lives easier. In these posts, I want to treat math more as a toolkit - as a way of modeling relationships, or building intuition, than an end to itself. I think most importantly, I want to avoid tedious calculations as much as possible - it's sometimes important to be able to work through pages and pages of algebra to solve a problem, but I think increasingly this isn't a skill set that's really useful most of the time. So my goal whenever I introduce a mathematical concept is 
 
 #. To explain why we need it 
-#. To explain exactly what sort of behavrior we're modeling with it 
+#. To explain exactly what sort of behavior we're modeling with it 
 #. To give some examples of how we actually can use it in a calculation
 
 
-.. [#] For an excellent and much more articulate take on all of this, I'd really strongly reccomend Paul Lockhart's "A Mathematician's Lament"
+.. [#] For an excellent and much more articulate take on all of this, I'd really strongly recommend Paul Lockhart's "A Mathematician's Lament"
 
 .. [#] I'll always have a special bitterness for the junior-year college course I took in linear algebra that would have us do things like calculate the determinant of a 5x5 matrix by hand on midterms. I'm honestly *still* not sure what the point of that was.
 
