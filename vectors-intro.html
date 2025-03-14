@@ -92,7 +92,7 @@
 <div class="section" id="a-word-on-notation">
 <h3>A word on notation</h3>
 <p>When we know what numbers make up a vector, we'll write them in square brackets like we in the demo above. It's a little unnatural to write numbers in a column at first, but the notation is important as we'll see later.</p>
-<p>There's another way that people sometimes write vectors. Instead of grouping the numbers in a column, they'll write each component separately, using <span class="math">\(\widehat{i}\)</span> as the X-axis,  <span class="math">\(\widehat{j}\)</span> as the X-axis, and  <span class="math">\(\widehat{k}\)</span> as the Z-axis,. So the vector <span class="math">\(\begin{bmatrix}1\\-2\\5\end{bmatrix}\)</span> would get re-written as <span class="math">\(\widehat{i} - 2\widehat{j} + 5\widehat{k}\)</span>. This notation is interchangeable with the more standard brackets.</p>
+<p>There's another way that people sometimes write vectors. Instead of grouping the numbers in a column, they'll write each component separately, using <span class="math">\(\widehat{i}\)</span> as the X-axis,  <span class="math">\(\widehat{j}\)</span> as the X-axis, and  <span class="math">\(\widehat{k}\)</span> as the Z-axis (if the vector is 3D). So the vector <span class="math">\(\begin{bmatrix}1\\-2\\5\end{bmatrix}\)</span> would get re-written as <span class="math">\(\widehat{i} - 2\widehat{j} + 5\widehat{k}\)</span>. This notation is interchangeable with the more standard brackets. We will sometimes call <span class="math">\(\widehat{i}, \widehat{j},\)</span> and <span class="math">\(\widehat{k}\)</span> <em>basis vectors</em>, because they represent the individual components that form a &quot;basis&quot; for building out other vectors.</p>
 <p>More often though, we'll write equations with vectors using variables, rather than explicitly writing out the components of the vector. This raises a problem - probably every object you've used in the past has been a sort of number (an integer, fraction, real number, etc), so we haven't had to be very careful with notation. Vectors are the first things that most of us work with in math that are not just numbers, and so there's a few ways that mathematicians and physicists use to distinguish them.</p>
 <p>Probably the most common way to distinguish vectors from numbers are to bold them, like <span class="math">\(\mathbf{v}\)</span> - that's what we'll use here for most cases. Alternatively, you will sometimes see people draw a little arrow above the variable, like <span class="math">\(\vec{v}\)</span>.  Finally, in quantum mechanics there's a special sort of notation that gets used for vectors to illustrate that they are being used in a more &quot;abstract&quot; sense - we would write the vector v as <span class="math">\(|v\rangle\)</span>.</p>
 </div>
@@ -168,7 +168,7 @@ a\mathbf{v} = a \cdot \begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}a \cdot 
 <p>There's one detail that we've glossed over so far, but that's worth calling out explicitly. In the earlier demo where we added vectors together, we kept track of both the total distance, and the overall displacement that the path took. But we didn't actually describe how to calculate these lengths. Obviously for a vector like <span class="math">\(\begin{bmatrix}0\\20\\0\end{bmatrix}\)</span> it's pretty obvious how to do this - we only move in one direction, so the total length is just 20.</p>
 <p>What about for a vector that has non-zero components in multiple directions? There's a nice geometric way to get this - we can just measure the distance along each of the axes, and then make a right triangle. The hypotenuse (diagonal) is the length of the vectors, while the sides are just the distances along each axis. But these are just the components of the vectors. The diagram below is probably helpful:</p>
 <canvas id="figure-2ea-distance" width="300" height="200">Visualization of the sides of vector</canvas>
-<script src="interactive/fig2ea_distance.js" type="module" defer></script><p>We can then just use the pythagorean theorem to get the length! So for a vector <span class="math">\(\mathbf{v} = \begin{bmatrix}x\\y\end{bmatrix}\)</span>, the length is <span class="math">\(\sqrt{x^2 + y^2}\)</span>. The logic works for 3D (or even higher-dimensional) vectors as well - for a 3d vector, the length is <span class="math">\(\sqrt{x^2 + y^2 + z^2}\)</span>. In general the shorthand for the length of a vector (of any dimensionality) is <span class="math">\(\left\lVert\mathbf{v}\right\rVert\)</span>.</p>
+<script src="interactive/fig2ea_distance.js" type="module" defer></script><p>We can then just use the pythagorean theorem to get the length! So for a vector <span class="math">\(\mathbf{v} = \begin{bmatrix}x\\y\end{bmatrix}\)</span>, the length is <span class="math">\(\sqrt{x^2 + y^2}\)</span>. The logic works for 3D (or even higher-dimensional) vectors as well - for a 3d vector, the length is <span class="math">\(\sqrt{x^2 + y^2 + z^2}\)</span> <a class="footnote-reference" href="#footnote-3" id="footnote-reference-3">[3]</a>. In general the shorthand for the length of a vector (of any dimensionality) is <span class="math">\(\left\lVert\mathbf{v}\right\rVert\)</span>.</p>
 <p>It's also sometimes useful to be able to go backwards - if we have the length and we want to get the sides, we can use the cosine and sine functions to get them. Using the angle that we've shown on the plot, the coordinates of the vector will generally be <span class="math">\(\begin{bmatrix}\left\lVert\mathbf{v}\right\rVert cos(\theta) \\ \left\lVert\mathbf{v}\right\rVert sin(\theta)\end{bmatrix}\)</span>. If you ever get confused though, draw a diagram, and rely on Soh-Cah-Toh (sine is the opposite side to the angle, cosine is the adjacent side).</p>
 <p>We've taken a view of vectors so far that focuses pretty strongly on them as being built out of individual numbers representing their individual coordinates. But it's not at all uncommon to think first of the total length of a vector as its main property, and then to think of that length as being oriented in a particular direction. This is a perspective that will definitely become more clear the longer we work with vectors.</p>
 </div>
@@ -210,7 +210,7 @@ a\mathbf{v} = a \cdot \begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}a \cdot 
 <p>One more thing - how do we decide what is &quot;negative&quot; area and what is &quot;positive?&quot; The rule that we follow is called the &quot;right-hand&quot; rule. What you can do is the fingers on your right hand in the direction of the first vector (<span class="math">\(\mathbf{u}\)</span>), and then curl them in the direction of the second vector (<span class="math">\(\mathbf{v}\)</span>). If your thumb points up, then the area is positive. If it points down, the area is negative.</p>
 <div class="figure align-right" style="width: 200px">
 <img alt="Figure illustrating the right-hand rule" src="img/vectors/1920px-Right-hand_grip_rule.png" style="width: 200px;" />
-<p class="caption">A right hand illustrating the direcitonality of &quot;positive&quot; area for the wedge product (<a class="reference external" href="https://en.wikipedia.org/wiki/Right-hand_rule#/media/File:Right-hand_grip_rule.svg">from the wikipedia article</a>)</p>
+<p class="caption">A right hand illustrating the directionality of &quot;positive&quot; area for the wedge product (<a class="reference external" href="https://en.wikipedia.org/wiki/Right-hand_rule#/media/File:Right-hand_grip_rule.svg">from the wikipedia article</a>)</p>
 </div>
 <p>So what sort of object is <span class="math">\(\mathbf{u} \wedge \mathbf{v}\)</span>? Because it represents a sort of &quot;oriented area&quot; created out of two vectors, it's typically called a <em>bivector</em>. Similarly, the result of <span class="math">\(\mathbf{u} \wedge \mathbf{v} \wedge \mathbf{w}\)</span> is a 3D volume, which we call a <em>trivector</em>. Don't worry too much if the flood of definitions is a little bit too much - the most important idea here is to understand that the wedge product allows us to multiply vectors in the same way that we'd multiply lengths in terms of units.</p>
 <p>We've given some formal definitions of the wedge product so far, but I think it's not really clear at all how we'd actually calculate one given two vectors. Let's try wedging together two example vectors just to get a sense of how the product behaves in a real calculation</p>
@@ -301,16 +301,16 @@ a\mathbf{v} = a \cdot \begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}a \cdot 
 \mathbf{u} \cdot \mathbf{v} = \begin{bmatrix}x_1\\y_1\\z_1\end{bmatrix} \cdot \begin{bmatrix}x_2\\y_2\\z_2\end{bmatrix} = x_1x_2 + y_1y_2 + z_1z_2
 \end{equation*}
 </div>
-<p>Unlike the cross product, the dot product works for vectors in any dimension. What's a little weird though is that we don't get a vector out - instead we get a number (i.e. a <em>scalar</em>). There's a remarkable formula for interpreting this number that seems almost too good to be true <a class="footnote-reference" href="#footnote-3" id="footnote-reference-3">[3]</a> -</p>
+<p>Unlike the cross product, the dot product works for vectors in any dimension. What's a little weird though is that we don't get a vector out - instead we get a number (i.e. a <em>scalar</em>). There's a remarkable formula for interpreting this number that seems almost too good to be true <a class="footnote-reference" href="#footnote-4" id="footnote-reference-4">[4]</a> -</p>
 <div class="math">
 \begin{equation*}
 \mathbf{u} \cdot \mathbf{v} = \left\lVert\mathbf{u}\right\rVert \left\lVert\mathbf{v}\right\rVert cos(\theta)
 \end{equation*}
 </div>
-<p>Where (as we defined earlier) <span class="math">\(\left\lVert\mathbf{v}\right\rVert\)</span> is the length of v, and <span class="math">\(\theta\)</span> is the angle between the two vectors. This is sort of crazy! Imagine trying to calculate this alone - we'd have to somehow measure the angle between the vectors, calcualte the cosine of the angle, calculate the length of each vector, and then multiply them all together. But just by multiplying the components and adding them together we get this result basically for free, just from the components!</p>
+<p>Where (as we defined earlier) <span class="math">\(\left\lVert\mathbf{v}\right\rVert\)</span> is the length of v, and <span class="math">\(\theta\)</span> is the angle between the two vectors. This is sort of crazy! Imagine trying to calculate this alone - we'd have to somehow measure the angle between the vectors, calculate the cosine of the angle, calculate the length of each vector, and then multiply them all together. But just by multiplying the components and adding them together we get this result basically for free, just from the components!</p>
 <p>Let's talk through some consequences of this</p>
 <ol class="arabic simple">
-<li>Since <span class="math">\(cos(0^{\circ}) = 1\)</span>, if two vectors <span class="math">\(\mathbf{u}\)</span> and <span class="math">\(\mathbf{v}\)</span> are paralell with each other, then <span class="math">\(\mathbf{u} \cdot \mathbf{v} = \left\lVert\mathbf{u}\right\rVert \left\lVert\mathbf{v}\right\rVert\)</span>, meaning we just take the product of their lengths. In particular, if we take the dot product of any vector <span class="math">\(\mathbf{v}\)</span> with itself, we will get <span class="math">\(\mathbf{v} \cdot \mathbf{v} = \left\lVert\mathbf{v}\right\rVert^2\)</span>. So another way of writing the length of a vector is <span class="math">\(\sqrt{\mathbf{v} \cdot \mathbf{v}}\)</span></li>
+<li>Since <span class="math">\(cos(0^{\circ}) = 1\)</span>, if two vectors <span class="math">\(\mathbf{u}\)</span> and <span class="math">\(\mathbf{v}\)</span> are parallel with each other, then <span class="math">\(\mathbf{u} \cdot \mathbf{v} = \left\lVert\mathbf{u}\right\rVert \left\lVert\mathbf{v}\right\rVert\)</span>, meaning we just take the product of their lengths. In particular, if we take the dot product of any vector <span class="math">\(\mathbf{v}\)</span> with itself, we will get <span class="math">\(\mathbf{v} \cdot \mathbf{v} = \left\lVert\mathbf{v}\right\rVert^2\)</span>. So another way of writing the length of a vector is <span class="math">\(\sqrt{\mathbf{v} \cdot \mathbf{v}}\)</span>. One nice thing about this definition is that we no longer have to even specify the number of dimensions as we did above.</li>
 <li>Since  <span class="math">\(cos(90^{\circ}) = 0\)</span>, the dot product of any two perpendicular vectors is always zero</li>
 <li>Since  <span class="math">\(cos(180^{\circ}) = -1\)</span>, the dot product of antiparallel vectors is the negative of the dot product of parallel vectors</li>
 <li>More generally, we can think of the dot product as multiplying the parts of two vectors that are &quot;in common&quot; along the same axis.</li>
@@ -336,163 +336,15 @@ a\mathbf{v} = a \cdot \begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}a \cdot 
 </div>
 <p>Whew! That's a lot of math, but it's definitely worth getting everything on good footing. There's one last idea we have to cover</p>
 </div>
-<div class="section" id="the-matrix-product">
-<h2>The matrix product</h2>
-<p>In total we've explored four notions of &quot;multiplying&quot; vectors</p>
-<ol class="arabic simple">
-<li>The Hardamard product (directly multiplying vector elements)</li>
-<li>Scaling a vector by a number</li>
-<li>The wedge product (and its cousin the cross product)</li>
-<li>The dot product</li>
-</ol>
-<p>But all of these are sort of unsatisfying - they're either not very useful for what we're trying to model (i.e. the Hardamard product), extremely limited in what they represent (the cross product or the scalar product), or not really a way to transform a vector to another vector in a general way.</p>
-<p>What do I mean by this? Well for numbers, we can always solve for x in the equation <span class="math">\(x * y = z\)</span>. But the same is definitely not true of vectors at this point - we can't find anything that - in general - will turn one vector into a different vector by multiplication in a way that's useful to us (of course, we could do this with the Hardamard product, but as we've already seen it's tough to really apply this to physics.)</p>
-<p>Here's a fun idea though! We know that the inner product can take two vectors, and output a single scalar quantity telling us (loosely) how &quot;aligned&quot; the two vectors are with each other. What if instead of taking a single inner product, we took multiple inner products? After all, if our vector is 3 dimensional, we could get a new vector out of it by taking 3 dot products - one for the X coordinate, one for the Y coordinate, and one for the Z-coordinate.</p>
-<p>This is a little abstract - let's start with a simple example. Let's say that we had the following three vectors</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix}1\\0\\0\end{bmatrix};\begin{bmatrix}0\\1\\0\end{bmatrix}; \begin{bmatrix}0\\0\\1\end{bmatrix}
-\end{equation*}
-</div>
-<p>Let's try multiplying these (in order) by the vector <span class="math">\(\begin{bmatrix}1\\2\\3\end{bmatrix}\)</span>. We'll take three dot products using these new vectors on the &quot;left&quot;, and our vector <span class="math">\(\begin{bmatrix}1\\2\\3\end{bmatrix}\)</span> on the &quot;right&quot;:</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix}1\\0\\0\end{bmatrix}\cdot\begin{bmatrix}1\\2\\3\end{bmatrix} = 1;\begin{bmatrix}0\\1\\0\end{bmatrix}\cdot\begin{bmatrix}1\\2\\3\end{bmatrix} = 2; \begin{bmatrix}0\\0\\1\end{bmatrix}\cdot\begin{bmatrix}1\\2\\3\end{bmatrix} = 3
-\end{equation*}
-</div>
-<p>If we were to stitch these three numbers together into a new vector, we'd end up back with <span class="math">\(\begin{bmatrix}1\\2\\3\end{bmatrix}\)</span>. In a way, the three vectors we picked are interesting because they each &quot;select&quot; out either the first, second, or third component of the vector.</p>
-<p>This notation is a little ugly right now, but there's a really beautiful way to write this. Remember that we write vectors as columns? What if the vectors that we use as multiples got written as rows? We could then basically say that the top row would become to the top component of the vector, the second row would become the second component, etc - the colors below should help explain what I mean here:</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix}\color{red}1 &amp;\color{red} 0 &amp; \color{red}0\\
-               \color{green} 0 &amp; \color{green} 1 &amp; \color{green} 0 \\
-                \color{blue} 0 &amp;\color{blue} 0 &amp; \color{blue} 1 \\
-\end{bmatrix} \times \begin{bmatrix}1\\2\\3\end{bmatrix} =
-\begin{bmatrix}\color{red} 1\\ \color{green} 2\\\color{blue} 3\end{bmatrix}
-\end{equation*}
-</div>
-<p>We call a stack of rows like this a <em>matrix</em> (pluralized as <em>matrices</em>) - and it's an incredibly important (and unavoidable) part of math when it comes to dealing with vectors. We picked (on purpose) a matrix that doesn't change the vector at all here, but it's easy to see that we can do some powerful things with matrices. For example, this matrix will swap the x and y coordinates</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix}\color{red}0 &amp;\color{red} 1 &amp; \color{red}0\\
-               \color{green} 1 &amp; \color{green} 0 &amp; \color{green} 0 \\
-                \color{blue} 0 &amp;\color{blue} 0 &amp; \color{blue} 1 \\
-\end{bmatrix} \times \begin{bmatrix}1\\2\\3\end{bmatrix} =
-\begin{bmatrix}\color{red} 2\\ \color{green} 1\\\color{blue} 3\end{bmatrix}
-\end{equation*}
-</div>
-<p>This matrix &quot;stretches&quot; the Z coordinate of the vector by 100 times, while keeping the x and y coordinates the same.</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix}\color{red}1 &amp;\color{red} 0 &amp; \color{red}0\\
-               \color{green} 0 &amp; \color{green} 1 &amp; \color{green} 0 \\
-                \color{blue} 0 &amp;\color{blue} 0 &amp; \color{blue} 100 \\
-\end{bmatrix} \times \begin{bmatrix}1\\2\\3\end{bmatrix} =
-\begin{bmatrix}\color{red} 1\\ \color{green} 2\\\color{blue} 300\end{bmatrix}
-\end{equation*}
-</div>
-<p>Here's another example - this matrix rotates the vector 45 degrees around the Z-axis</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix} \frac{\sqrt{2}}{2} &amp; - \frac{\sqrt{2}}{2} &amp; 0 \\
-                 \frac{\sqrt{2}}{2} &amp;  \frac{\sqrt{2}}{2} &amp; 0 \\
-                 0 &amp; 0 &amp; 1
-\end{bmatrix} \times \begin{bmatrix}1\\2\\3\end{bmatrix} =
-\end{equation*}
-</div>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix}-\frac{\sqrt{2}}{2}\\  -\frac{3\sqrt{2}}{2}\\ 3\end{bmatrix}
-\end{equation*}
-</div>
-<p>We've done a lot of math so far - so in the last section we'll try to get a little bit of an intuitive sense for how a matrix in 2D works</p>
-</div>
-<div class="section" id="some-intuition-for-the-matrix-product">
-<h2>Some intuition for the matrix product</h2>
-<p>I think rather than trying to explain out how a matrix works on vectors in the abstract, the more useful thing to do would be to give you some examples to play with. In addition to showing the effect of three vectors, I also put a picture of actor Nicholas Cage (in a typically <a class="reference external" href="https://en.wikipedia.org/wiki/Nicolas_Cage#/media/File:Nicolas_Cage_Comic-Con_2011.jpg">unflattering image from Wikipedia</a> that was taken at Comic-Con in 2011 ) to help get a better idea of how the &quot;space&quot; is transformed.</p>
-<p>Below you can try inputting numbers into the rows and columns of the matrix, and the image and vectors will transform the same way:</p>
-<style>
-table {
-max-width: 120px,
-border: 0px,
-}
-td {
-border: 0px,
-}
-.matrix-element {
-max-width: 50px
-}
-</style>
-<table>
-<tr>
-    <td><input id="input-00" class="matrix-element"></input></td>
-    <td><input id="input-01" class="matrix-element"></input></td>
-</tr>
-<tr>
-    <td><input id="input-10" class="matrix-element"></input></td>
-    <td><input id="input-11" class="matrix-element"></input></td>
-</tr>
-</table>
-
-<canvas id="figure-2h-matrix-transforms" width="300" height="400">Visualization showing that vector addition is commutitive</canvas>
-<div style="display:none;">
-<img
- id="source"
- src="img/vectors/Nicolas_Cage_Comic-Con_2011.jpg"
- width="200"
- height="200" />
-</div>
-<script src="interactive/fig2h_matrix_transforms.js" type="module" defer></script><p>Here's a few matrices to try - first, we're starting with a matrix that &quot;does nothing&quot; to the vectors, which for a 2D vector is</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}
-\end{equation*}
-</div>
-<p>Similar to 1 in multiplication (and zero in addition) we refer to this matrix as the identity matrix</p>
-<canvas id="figure-2h-identity" width="300" height="400">Matrix identity</canvas><p>We can easily change this to &quot;stretch&quot; the x or y axes. For example, the matrix below will stretch everything to be twice as big in the x-direction, but leave the y-direction unchanged.</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{bmatrix}
-\end{equation*}
-</div>
-<canvas id="figure-2h-scaling" width="300" height="400">Matrix stretching</canvas><p>We can also &quot;flip&quot; the image over - for example, if we were to use -1 in the y-direction, we could flip (or in more technical terms &quot;reflect&quot;) the image around</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}
-\end{equation*}
-</div>
-<canvas id="figure-2h-flip" width="300" height="400">Matrix reflection</canvas><p>So far none of these examples have used the other two numbers that are &quot;off-diagonal.&quot; That's simpler to think about, because we're ultimately not &quot;mixing&quot; the x and y-components of the vector at all. What could we do if we did mix them? Well one option is to &quot;skew&quot; the vectors</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{bmatrix}
-\end{equation*}
-</div>
-<canvas id="figure-2h-skew" width="300" height="400">Matrix skew</canvas><p>A more useful thing that we can do though is to rotate the whole coordinate system together - here's an example matrix that does that by 60 degrees</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix} \frac{1}{2} &amp; -\frac{\sqrt{3}}{2} \\  \frac{\sqrt{3}}{2} &amp; \frac{1}{2} \end{bmatrix} \approx \begin{bmatrix} 0.5 &amp; -0.86 \\  0.86 &amp; 0.5 \end{bmatrix}
-\end{equation*}
-</div>
-<canvas id="figure-2h-rotation" width="300" height="400">Matrix rotation</canvas><p>Rotations are interesting enough that it's worth covering them in a little more detail. In general, if we want to rotate a vector by <span class="math">\(\theta\)</span> degrees in 2D, then we can multiply it by the vector</p>
-<div class="math">
-\begin{equation*}
-\begin{bmatrix} cos(\theta) &amp; -sin(\theta) \\ sin(\theta) &amp; cos(\theta) \end{bmatrix}
-\end{equation*}
-</div>
-</div>
-<div class="section" id="linear-transformations">
-<h2>Linear transformations</h2>
-<p>One thing that you'll probably notice here is that we can't make a matrix to transform the image any way that we want. For example, it's not possible to use a 2D matrix to &quot;swirl&quot; the image, or to blur it, or to create a wavy pattern. These limitations are actually pretty useful in a way - as we'll explore a little later, everything that you can do to a vector using a matrix corresponds to something called a <em>linear transformation</em>. In brief, a linear transformation is means that we move everything around so that the rules of vector addition (and scaling) work out the same. An easy example is a rotation - it's not so hard to see that the vectors that we've drawn on the image still add up the same way no matter how we rotate it. One sort of cheeky way to think about this is that you can spin around the computer screen (or tablet, or phone) however you want, and none of the geometric relationships that we've claimed vectors to have will change. We've done a lot already though, so this is a topic for another day.</p>
-</div>
 <div class="section" id="recap">
 <h2>Recap</h2>
 <p>We covered a lot in this post - but I think if there's three ideas that are going to come up again and again, they are</p>
 <ol class="arabic simple">
 <li>Vectors let us model displacement in multiple dimensions</li>
 <li>The dot product allows us to get a number that represents the product of the &quot;common length&quot; between two vectors</li>
-<li>Matrices allow us to transform vectors in specific (but useful) ways</li>
+<li>The wedge product and its relative the cross product give us a way to talk about the area spanned by two vectors</li>
 </ol>
-<p>In general, becoming more comfortable with manipulating vectors and matrices (what mathematicians call <em>Linear Algebra</em>) is pretty much always going to be a good use of your time. It's the cornerstone of basically all modern scientific computing (including machine learning, statistics, etc), and generally one of the most useful things in the toolkit of any budding scientist.</p>
+<p>This was definitely a lot of math - some of it pretty abstract. But there's probably not a single more useful sub-field of math to be comfortable with than the ways that we can manipulate vectors. This field is (broadly) something that mathematicians call <em>Linear Algebra</em> - it's such a useful set of ideas that a lot of work in math (particularly applied/computational math) is dedicated to finding ways to re-phrase problems in the lanaguage of linear algebra. Although we mostly covered things that are directly relevant to physics here, it's the cornerstone of basically all modern scientific computing (including machine learning, statistics, etc), and generally one of the most useful things in the toolkit of any budding scientist.</p>
 <table class="docutils footnote" frame="void" id="footnote-1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -502,13 +354,19 @@ max-width: 50px
 <table class="docutils footnote" frame="void" id="footnote-2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#footnote-reference-2">[2]</a></td><td>There's even situations where its useful to model functions as <em>infitite dimensional</em> vectors - while this might seem like a bunch of pure math nonsense, this is one of the foundational ideas that makes quantum mechanics possible.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#footnote-reference-2">[2]</a></td><td>There's even situations where its useful to model functions as <em>infinite dimensional</em> vectors - while this might seem like a bunch of pure math nonsense, this is one of the foundational ideas that makes quantum mechanics possible.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="footnote-3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#footnote-reference-3">[3]</a></td><td>There's a detail that we've glossed over here - it's an important but sort of pedantic one. This proprerty of the dot product only works if the coordinate system that we're working with has all of its axes perpendicular (more commonly said as orthogonal) to each other. But that's a bridge we'll cross when we come to it</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#footnote-reference-3">[3]</a></td><td>For higher dimensional vectors, it's common to switch from the labels x, y, and z to numbered labels, like <span class="math">\(x_1, x_2, x_3, \ldots\)</span> - where <span class="math">\(x_1\)</span> represents what we originally called x, <span class="math">\(x_2\)</span> represents what we originally called y, and so on. The pattern for length remains the same - we just square up all of the sub-components, add them together, and take the square root. So the length of a four-dimensional vector is just <span class="math">\(\sqrt{x_1^2 + x_2^2 + x_3^2 + x_4^2}\)</span>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="footnote-4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#footnote-reference-4">[4]</a></td><td>There's a detail that we've glossed over here - it's an important but sort of pedantic one. This property of the dot product only works if the coordinate system that we're working with has all of its axes perpendicular (more commonly said as orthogonal) to each other. But that's a bridge we'll cross when we come to it</td></tr>
 </tbody>
 </table>
 </div>
@@ -598,10 +456,10 @@ max-width: 50px
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="./tags.html#math-ref">math
-                    <span>3</span>
+                    <span>5</span>
 </a></li>
                 <li><a href="./tags.html#vectors-ref">vectors
-                    <span>1</span>
+                    <span>2</span>
 </a></li>
             </ul>
             
